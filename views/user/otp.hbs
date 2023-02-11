@@ -1,0 +1,35 @@
+ 
+
+
+{{!-- Login Form Start --}}
+<div class="body-content">
+    <div class="">
+        <div class="container">
+            <div class="sign-in-page">
+                <div class="row">
+                    <div class="loginouter">
+                        <div class="col-md-6 col-sm-6 col-xs-12 sign-in mx-0 " style="border-radius: 5px; box-shadow: 0px 1px 8px 8px #dedede">
+                            <div>
+                                <div class="otpbody text-center">
+                                    <h3 style="padding-top: 2rem;"><strong>Enter OTP</strong></h3>
+                                    <form action="/user/GETOTP" class="register-form outer-top-xs" method="post">
+                                        <input type="number" name="FOTP"><br>
+                                        {{#if otpStatus}}
+                                        <p style="color: red;">OTP is not correct!</p>
+                                        {{/if}}
+                                        <button class="btn" type="submit">Verify</button>
+                                        {{!-- <a href="" class="btn" type="submit">Verify</a> --}}
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- Login Form End --}}
+
+
+ 

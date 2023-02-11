@@ -1,0 +1,675 @@
+/* body */
+* {
+  font-family: "Barlow", sans-serif;
+}
+body a {
+  text-decoration: none;
+  font-family: "Barlow", sans-serif;
+}
+
+body a:hover {
+  text-decoration: none;
+}
+
+/* Profile icon */
+.Profile {
+  display: flex;
+  justify-content: right;
+  text-align: center;
+  margin-top: 1rem;
+  padding-top: 0.1rem;
+  padding-right: 12px;
+}
+
+.Profile button {
+  background: rgb(255, 245, 245);
+  padding: 8px;
+  border-radius: 47px;
+  padding-right: 13px;
+  padding-left: 13px;
+  text-align: center;
+  border: none;
+}
+
+.Profile button:focus {
+  outline: none;
+}
+
+.Profile .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: -2rem;
+  text-align: center;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 82px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  transition: 0.4s;
+  list-style: none;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+  box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+}
+
+.Profile .dropdown-menu li {
+  padding: 4px;
+}
+
+.Profile .dropdown-menu,
+.dropdown-menu li {
+  background-color: rgb(255, 245, 245);
+  color: black;
+  font-weight: bold;
+}
+
+.Profile .dropdown-menu a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+.Profile .dropdown-menu li:hover {
+  background-color: #042b57;
+  color: white;
+}
+
+.Profile .dropdown-menu li:hover a {
+  background-color: #042b57;
+  color: white;
+}
+
+.optionsforuser {
+  text-align: right;
+  font-weight: 400;
+  padding: 18px 18px;
+  font-size: 18px;
+  margin-right: -30px;
+}
+
+.optionsforuser a {
+  color: white;
+  text-decoration: none;
+  padding-right: 24px;
+  transition: 0.4s;
+}
+
+.optionsforuser a:hover {
+  color: #f1c40f;
+  transition: 0.4s;
+}
+
+@media (max-width: 768px) {
+  .optionsforuser {
+    text-align: left;
+    padding: 0% 0%;
+    margin-left: 0%;
+    width: 100%;
+  }
+  .optionsforuser a {
+    width: 100%;
+    padding-right: 24px;
+    text-align: left;
+  }
+  .optionsforuser a:hover {
+    color: #042b57;
+    transition: 0.4s;
+  }
+}
+
+.product-price {
+  display: flex;
+  align-items: baseline;
+}
+
+.ratingclr {
+  color: rgb(242, 242, 0);
+}
+
+.product .product-info .product-price .price {
+  color: #4caf50;
+}
+
+/*  =========================================== LOGIN PAGE CSS */
+
+.loginouter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0rem;
+  padding-bottom: 5rem;
+}
+
+.loginouter button {
+  padding: 12px;
+  background-color: #042b57;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  color: white;
+}
+
+.loginouter button:hover {
+  color: white;
+  background-color: #134c8e;
+}
+
+@media screen and (max-width: 500px) {
+  .loginiouter {
+    width: 100%;
+  }
+}
+
+.loginbody {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.loginbody button {
+  width: 100%;
+  padding: 12px;
+  background-color: #042b57;
+}
+
+.verifybody a {
+  padding: 12px;
+  background-color: #042b57;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  color: white;
+}
+
+.verifybody a:hover {
+  color: white;
+}
+
+.loginbody input {
+  padding: 2rem;
+}
+
+.loginbody h4 {
+  font-size: 26px;
+}
+
+.loginbody form p {
+  color: black;
+}
+
+.body-content .sign-in-page .sign-in p,
+.body-content .sign-in-page .create-new-account p {
+  font-size: 14px;
+  color: #000000;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.otpbody input {
+  margin-top: 3rem;
+  font-size: 19px;
+  font-weight: bold;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+}
+.otpbody a {
+  padding: 12px;
+  background-color: #042b57;
+  margin-bottom: 5rem;
+  margin-top: 3rem;
+  padding-left: 12rem;
+  padding-right: 11rem;
+  color: white;
+  text-align: center;
+}
+
+.otpbody a:hover {
+  color: white;
+}
+
+.loginbody .btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #042b57;
+  padding-left: 12rem;
+  padding-right: 11rem;
+  color: white;
+  text-align: center;
+}
+
+#alert {
+  padding-top: 0rem;
+  text-align: center;
+  font-weight: 200;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: red;
+}
+
+#modal {
+  background: red;
+  text-align: center;
+  padding: 41px;
+  position: absolute;
+  z-index: 40;
+  left: 50%;
+  transform: translate(-50%, 0);
+  /* top: 50%; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal div {
+  background: yellow;
+  padding: 1rem;
+  /* width: 100vh; */
+  border-radius: 5px;
+}
+
+#modal .btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #042b57;
+  padding-left: 12rem;
+  padding-right: 11rem;
+  color: white;
+  text-align: center;
+}
+
+html {
+  overflow-x: hidden;
+}
+#modal p {
+  color: red;
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+#modal input {
+  padding-left: 2.5rem;
+  padding-top: 1rem;
+  text-align: center;
+  padding-right: 2.5rem;
+  padding-bottom: 1rem;
+  font-size: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#loginContent {
+  width: 100%;
+  margin-left: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#tags {
+  padding: 2rem;
+  display: flex;
+}
+
+#tags span a {
+  background-color: #042b57;
+  color: white;
+}
+
+#tags span a:hover {
+  background-color: #184c86;
+  color: white;
+  transition: 0.5s;
+}
+
+#tags #dropdownMenuButton .btn {
+  font-weight: 500;
+  font-family: sans-serif;
+  border: 1px solid white;
+}
+
+#tags #dropdownMenuButton .btn {
+  font-weight: 500;
+  font-family: sans-serif;
+  border: none;
+  outline: none;
+}
+
+#sort h5 {
+  padding-top: 1rem;
+  user-select: none;
+  color: #042b57;
+  padding-bottom: 1rem;
+}
+
+#sort h6 {
+  padding-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+#sitename {
+  color: white;
+  font-family: " Barlow", sans-serif;
+  font-weight: 500;
+  text-align: center;
+}
+
+#login_signup button {
+  border: #042b57;
+  /* padding: 1rem; */
+  padding-left: 2rem;
+  padding-top: 1rem;
+  text-align: center;
+  padding-bottom: 1rem;
+  padding-right: 2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  margin-right: 1rem;
+}
+
+#logindiv {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 1200px) {
+  #logindiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+  }
+}
+
+#mylogo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .optionsforuser {
+    text-align: left;
+    font-weight: 400;
+    padding: 18px 0%;
+    font-size: 18px;
+    margin-left: 0%;
+  }
+  .optionsforuser i:hover {
+    color: #f1c40f;
+  }
+
+  #mylogo {
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  #mylogogame {
+    display: none;
+  }
+}
+
+#loginsignupbtn {
+  background: none;
+  color: white;
+  border: 1px solid white;
+  border: 1px solid white;
+  border-radius: 4px;
+}
+
+#loginsignupbtn:hover {
+  transition: 0.5s;
+  border: 1px solid #f1c40f;
+  color: #f1c40f;
+  transform: scale(1.099);
+  font-weight: bold;
+}
+
+ul .logotxt {
+  color: #042b57;
+}
+
+.detailslist {
+  padding: 1rem;
+  padding-left: 0%;
+}
+
+.userbtns {
+  color: #042b57;
+  padding-left: 0%;
+  padding: 0%;
+}
+
+.userbtns:hover {
+  color: #f1c40f;
+  transition: 0.3s;
+}
+
+.detailslist strong {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: rgb(77, 77, 77);
+  font-family: "Barlow", sans-serif;
+}
+
+#orjinalprice {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #21a221;
+  font-family: "Barlow", sans-serif;
+}
+
+#strikedprice {
+  font-size: 2rem;
+  color: #9c9c9c;
+  margin-left: 1rem;
+  font-family: "Barlow", sans-serif;
+  font-weight: bold;
+  text-decoration: line-through;
+}
+
+#buttonouterDiv {
+  padding-top: 2rem;
+  padding-bottom: 0rem;
+}
+
+#CART {
+  background-color: #ff6518;
+  color: white;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 4rem;
+  text-align: center;
+  padding-right: 4rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+#BUY {
+  margin-bottom: 2rem;
+  color: white;
+  background-color: #f1c40f;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 4rem;
+  text-align: center;
+  padding-right: 4rem;
+  width: 100%;
+}
+
+#BUY:hover {
+  background-color: #cca711;
+}
+
+#CART:hover {
+  background-color: #d15111;
+}
+
+#test .side-menu nav .nav > li {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid #ffffff;
+}
+
+.logotxt {
+  text-align: left;
+}
+@media screen and (max-width: 768px) {
+  .logotxt {
+    text-align: center;
+    font-size: 2rem;
+  }
+}
+
+#smalldeviceimg {
+  display: none;
+}
+
+#largedeviceimgcarosal {
+  display: block;
+}
+
+@media screen and (max-width: 499px) {
+  #smalldeviceimg {
+    display: block;
+    margin-top: 5rem;
+  }
+  #largedeviceimgcarosal {
+    display: none;
+  }
+}
+
+#homecategory:hover {
+  color: #042b57;
+  font-weight: bold;
+}
+
+.profilebtns {
+  padding-bottom: 2rem;
+}
+
+.userbtnouterdiv {
+  padding-bottom: 1rem;
+}
+
+/*  ========================================  USER PROFILE CSS*/
+
+#userProfile {
+  font-family: "Barlow", sans-serif;
+}
+
+#userProfile i {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  color: #042b57;
+}
+
+#userProfile a {
+  font-size: 1.5rem;
+}
+
+#userProfile a:hover {
+  color: #042b57;
+  font-size: 1.7rem;
+}
+
+#formouterDiv {
+  padding: 6rem;
+}
+
+#formouterDiv input {
+  padding: 0.5rem;
+  border: 1px solid grey;
+}
+
+#formouterDiv input:hover {
+  background-color: #f5f5f5;
+  border: 1px solid #042b57;
+}
+
+#formouterDiv button {
+  background-color: #042b57;
+  border: #042b57;
+  border-radius: 3px;
+  width: 100%;
+}
+
+#collapseancor a {
+  padding: 0%;
+}
+
+#formouterDiv input {
+  border-radius: 3px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+#formouterDiv label {
+  color: red;
+  font-weight: 300;
+}
+
+
+/* ========================================== ALERT  CSS    (SWEET ALERTS CUSTOM) */
+
+#alertforeveryting {
+  background-color: red;
+}
+
+.swal2-container.swal2-center > .swal2-popup {
+  background-color: #ffffff !important;
+}
+
+.swal2-html-container,
+.swal2-title {
+  color: #000000 !important;
+  font-size: 334px;
+}
+
+body.swal2-shown > [aria-hidden="true"] {
+  transition: 0.1s filter;
+  filter: blur(5px);
+}
+
+.swal2-html-container,
+.swal2-input {
+  color: #000000 !important;
+  padding: 12rem;
+}
+
+.swal2-html-container,
+.swal2-input {
+  width: 80%;
+  width: 82%;
+  height: auto;
+  padding: 0 0.75em;
+}
+ 
+ 

@@ -1,0 +1,115 @@
+
+#addressBody {
+}
+
+#addressFormOuter {
+  padding-top: 1rem;
+}
+
+#addAddressOuter input {
+  width: 49%;
+  margin-bottom: 0.5rem;
+  border: 1px solid gray;
+  border-radius: 2px;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 520px) {
+  #addAddressOuter input {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    border: 1px solid gray;
+    border-radius: 2px;
+    padding: 0.5rem;
+  }
+}
+
+#addAddressOuter button {
+  border: 1px solid gray;
+  border-radius: 2px;
+  /* margin-top:3rem; */
+  /* padding: 0.5rem; */
+}
+
+#addAddressOuter button {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+#checkoutBody {
+  width: 100%;
+  /* background-color: #000000; */
+  padding: 1rem;
+  border: 1px solid grey;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 0px 0px black;
+}
+
+#addressBody h3 {
+  color: #042b57;
+}
+
+#checkoutInner h2 {
+  color: rgb(104, 173, 0);
+  font-size: 25px;
+}
+
+#checkoutHeading {
+  color: #042b57;
+}
+
+#payemntMehtods {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  /* justify-content: flex-end; */
+}
+
+#addressBody .shopping-cart .cart-shopping-total table thead tr th {
+  background-color: #ffffff;
+  text-align: right;
+  padding: 24px 30px;
+}
+
+#payemntMehtods #test {
+  border: 1px solid grey;
+  background-color: white;
+  border-radius: 3px;
+  padding: 1.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+#couponApplied {
+  background-color: rgb(4 43 87);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 1rem;
+  border-radius: 4px;
+  font-weight: lighter;
+}
+
+#couponApplied strong {
+  color: rgb(0, 255, 30);
+  font-size: 1.7rem;
+}
+
+#couponStatusDiv button,
+#couponRemove {
+  margin-top: 1rem;
+  border: none;
+  background-color: white;
+  color: black;
+}
+
+#couponStatusDiv button:hover {
+  color: rgb(47, 47, 47);
+  text-decoration: underline;
+}
+
+#couponStatusDiv #couponRemove:hover {
+  color: rgb(47, 47, 47);
+  text-decoration: underline;
+}

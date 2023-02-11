@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="/user/assets/stylesheets/cart.css">
+<link rel="stylesheet" href="/user/assets/stylesheets/wishlist.css">
+
+{{#if emptyStatus}}
+<div id="cartnoting">
+    <div id="emptyCart">
+        <img src="/user/assets/images/emptycart.svg" alt="">
+        <p>Your Wishlist is Empty!</p>
+        <strong>Add items to it now.</strong> <br>
+        <a href="/">
+            <button id="addProductsToCart">Add Products</button>
+        </a>
+    </div>
+</div>
+{{else}}
+
+<div class="container">
+    <div class="row ">
+        {{!-- Product details --}}
+        <h3 class="text-uppercase" style="padding-left: 1.2rem;">My wish List </h3>
+        {{#each wishlistProducts}}
+
+        {{!-- {{#each this.products}} --}}
+        <div class="col-xs-12 col-md-4 col-sm-12 " style="margin-top: 2rem; margin-bottom: 2rem;">
+            <div id="flexdiv" style="display: flex; justify-content: flex-start; align-items: center; margin-top: 2rem; background-color: rgb(255, 255, 255); border-radius: 5px; height: 18rem;  box-shadow: 0px 0px 15px 0px rgb(215, 215, 215); width: 365px;">
+                <a href="/detail/{{this}}">
+
+                    <div style="padding: 1rem;">
+                        <img src="/admin/assets/images/offerproduct-images/{{this.products.[0].productImages.[0]}}" alt="" width="100px">
+                    </div>
+
+                </a>
+                <div style="padding-right: 0rem;" id="prodDetails">
+                    <a href="/detail/{{this}}">
+                        <h4 class="text-uppercase">{{this.products.[0].FPname}}</h4>
+                    </a>
+                    <i class="fa-solid fa-star ratingclr"></i>
+                    <i class="fa-solid fa-star ratingclr"></i>
+                    <i class="fa-solid fa-star ratingclr"></i>
+                    <i class="fa-solid fa-star ratingclr"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <h4 style="color: rgb(0, 253, 0);">₹<span>{{this.products.[0].FPofferprice}}</span></h4>
+                </div>
+                <a href="#">
+                    <div style="margin-left:2rem; text-align: left; padding-right:1rem;">
+                        <button id="cartRemoveBtn" onclick="removeFromWishLIst('{{this.products.[0]._id}}')"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        <button id="cartRemoveBtn" onclick="addToCart('{{this.products.[0]._id}}')"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        {{/each}}
+        {{!-- Product details --}}
+    </div>
+</div>
+
+
+{{/if}}

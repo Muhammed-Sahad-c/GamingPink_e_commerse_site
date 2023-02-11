@@ -1,0 +1,182 @@
+<style>
+    body {
+        background-color: #eff3f6;
+    }
+
+   
+</style>
+
+<link rel="stylesheet" href="/user/assets/stylesheets/orders-detail.css">
+
+{{#if ordersEmptyStatus}}
+<div id="cartnoting">
+    <div id="emptyCart">
+        <img src="/user/assets/images/emptycart.svg" alt="">
+        <p>You are not orderd yet!</p>
+        <strong>Add items to it now.</strong> <br>
+        <a href="/">
+            <button id="addProductsToCart">Buy now</button>
+        </a>
+    </div>
+</div>
+{{else}}
+<div class="container">
+    <div class="row ">
+        {{!-- overall details --}}
+        <div class="col-xs-12 col-md-12 col-sm-12 " style="margin-top: 2rem; margin-bottom: 2rem ">
+            <div class="productOverViewHeadings">
+                <h3>PRODUCT DETAILS</h3>
+            </div> <br>
+
+            {{#each orderDetails}}
+            <div>
+                <div id="orderDetailsViewOuterDiv">
+                    {{#each this.productDetails}}
+                    <div>
+                        <img src="/admin/assets/images/offerproduct-images/{{this.productImages.[0]}}" alt="sdfasdf" width="65px">
+                    </div>
+                    <div id="prodDetails">
+                        <p>{{this.FPname}}</p>
+                    </div>
+                    {{/each}}
+
+                    <div>
+                        <p id="price">{{products.quantity}}</p>
+                    </div>
+
+                </div>
+            </div>
+            {{/each}}
+            {{!-- order details --}}
+            <div id="orderDetailsViewOuterDiv" style="padding-bottom: 2rem;">
+                <div style="text-align: center;">
+                    <h3 class="priceCalculations">₹{{orderDetails.[0].grandTotal}}</h3><br>
+                    <strong>SUB TOTAL</strong>
+                </div>
+                {{#if orderDetails.[0].couponStatus}}
+                <div style="text-align: center;">
+                    <h3 class="priceCalculations">₹{{orderDetails.[0].couponDiscount}}</h3><br>
+                    <strong>COUPON PRICE</strong>
+                </div>
+                <div style="text-align: center; color: rgb(0, 163, 35); ">
+                    <h3 class="priceCalculations">₹{{orderDetails.[0].finalDiscount}}</h3><br>
+                    <strong>TOTAL</strong>
+                </div>
+                {{else}}
+                <div style="text-align: center;">
+                    <h3 class="priceCalculations">₹0000</h3><br>
+                    <strong>COUPON PRICE</strong>
+                </div>
+                <div style="text-align: center; color: rgb(0, 163, 35);">
+                    <h3 class="priceCalculations ">₹{{orderDetails.[0].grandTotal}}</h3><br>
+                    <strong>TOTAL</strong>
+                </div>
+                {{/if}}
+
+                {{!-- TRACK ORDER --}}
+            </div>
+
+            <div class="productOverViewHeadings">
+                <h3>TRACK ORDER</h3>
+            </div> <br>
+            {{#if shipped }}
+            <div id="orderDetailsViewOuterDiv" style="padding-top: 3rem;box-shadow: 0px 0px 11px 1px rgb(199, 199, 199); padding-bottom: 5rem;">
+                <div style="text-align: center; color: green;">
+                    <h3><i class="fa-solid fa-check"></i></h3><br>
+                    <small><strong>order confirmed</strong></small>
+                </div>
+                <div style="text-align: center; color: green;">
+                    <h3><i class="fa-solid fa-check"></i></h3><br>
+                    <small><strong>Shipped</strong></small>
+                </div>
+                <div style="text-align: center; color: rgba(128, 128, 128, 0.538);">
+                    <h3><i class="fa-solid fa-clock"></i></h3><br>
+                    <small><strong>Out of Delivary</strong></small>
+                </div>
+                <div style="text-align: center; color: rgba(128, 128, 128, 0.538);">
+                    <h3><i class="fa-solid fa-clock"></i></h3><br>
+                    <small><strong>deliveried</strong></small>
+                </div>
+            </div>
+            {{else if outOfDelivery}}
+            <div id="orderDetailsViewOuterDiv" style="padding-top: 3rem;box-shadow: 0px 0px 11px 1px rgb(199, 199, 199); padding-bottom: 5rem;">
+                <div style="text-align: center; color: green;">
+                    <h3><i class="fa-solid fa-check"></i></h3><br>
+                    <small><strong>order confirmed</strong></small>
+                </div>
+                <div style="text-align: center; color: green;">
+                    <h3><i class="fa-solid fa-check"></i></h3><br>
+                    <small><strong>Shipped</strong></small>
+                </div>
+                <div style="text-align: center; color: green;">
+                    <h3><i class="fa-solid fa-check"></i></h3><br>
+                    <small><strong>Out of Delivery</strong></small>
+                </div>
+                <div style="text-align: center; color: rgba(128, 128, 128, 0.538);">
+                    <h3><i class="fa-solid fa-clock"></i></h3><br>
+                    <small><strong>deliveried</strong></small>
+                </div>
+            </div>
+            {{else if cancelled}}
+            <div id="orderDetailsViewOuterDiv" style="padding-top: 3rem;box-shadow: 0px 0px 11px 1px rgb(199, 199, 199); padding-bottom: 5rem;">
+                <div style="text-align: center; color:red;">
+                    <h3><i class="fa-solid fa-circle-xmark"></i></h3><br>
+                    <small><strong>order confirmed</strong></small>
+                </div>
+                <div style="text-align: center; color:red;">
+                    <h3><i class="fa-solid fa-circle-xmark"></i></h3><br>
+                    <small><strong>Shipped</strong></small>
+                </div>
+                <div style="text-align: center; color:red;">
+                    <h3><i class="fa-solid fa-circle-xmark"></i></h3><br>
+                    <small><strong>Out of Delivery</strong></small>
+                </div>
+                <div style="text-align: center; color: red;">
+                    <h3><i class="fa-solid fa-circle-xmark"></i></h3><br>
+                    <small><strong>deliveried</strong></small>
+                </div>
+            </div>
+            {{else if deliveried}}
+            <div id="orderDetailsViewOuterDiv" style="padding-top: 3rem;box-shadow: 0px 0px 11px 1px rgb(199, 199, 199); padding-bottom: 5rem;">
+                <div style="text-align: center; color: green;">
+                    <h3><i class="fa-solid fa-check"></i></h3><br>
+                    <small><strong>order confirmed</strong></small>
+                </div>
+                <div style="text-align: center; color: green;">
+                    <h3><i class="fa-solid fa-check"></i></h3><br>
+                    <small><strong>order confirmed</strong></small>
+                </div>
+                <div style="text-align: center; color: green;">
+                    <h3><i class="fa-solid fa-check"></i></h3><br>
+                    <small><strong>order confirmed</strong></small>
+                </div>
+                <div style="text-align: center; color: green;">
+                    <h3><i class="fa-solid fa-check"></i></h3><br>
+                    <small><strong>order confirmed</strong></small>
+                </div>
+            </div>
+            {{else}}
+            <div id="orderDetailsViewOuterDiv" style="padding-top: 3rem;box-shadow: 0px 0px 11px 1px rgb(199, 199, 199); padding-bottom: 5rem;">
+                <div style="text-align: center; color: green;">
+                    <h3><i class="fa-solid fa-check"></i></h3><br>
+                    <small><strong>order confirmed</strong></small>
+                </div>
+                <div style="text-align: center; color: rgba(128, 128, 128, 0.538);">
+                    <h3><i class="fa-solid fa-clock"></i></h3><br>
+                    <small><strong>shipped</strong></small>
+                </div>
+                <div style="text-align: center; color: rgba(128, 128, 128, 0.538);">
+                    <h3><i class="fa-solid fa-clock"></i></h3><br>
+                    <small><strong>Out of Delivary</strong></small>
+                </div>
+                <div style="text-align: center; color: rgba(128, 128, 128, 0.538);">
+                    <h3><i class="fa-solid fa-clock"></i></h3><br>
+                    <small><strong>deliveried</strong></small>
+                </div>
+            </div>
+            {{/if}}
+            {{!-- track orders --}}
+        </div>
+
+    </div>
+    {{/if}}

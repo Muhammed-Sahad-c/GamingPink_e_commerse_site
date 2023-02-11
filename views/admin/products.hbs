@@ -1,0 +1,51 @@
+{{!-- Products Start --}}
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-secondary text-center rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h6 class="mb-0 text-uppercase">Products</h6>
+            <a href="/admin/deletedhistory/"><button id="deletedhistorybtn" style="color: red;">Deleted History</button></a>
+            <a href="/admin/offerProducts/"><button id="deletedhistorybtn" style="color: red;">Add offer Products</button></a>
+            <a href="/admin/addproduct"><button id="addProductsbtn" style="color: red;">Add Products</button></a>
+        </div>
+        <div class="table-responsive">
+            <table class="table text-start align-middle table-bordered table-hover mb-0" id="test">
+                <thead>
+                    <tr class="text-white">
+                        <th scope="col">No</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Sub Catagory</th>
+                        <th scope="col">Offer Price</th>
+                        <th scope="col">Orjinal Price</th>
+                        <th scope="col">In stock</th>
+                        <th scope="col">image</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{!-- Looping product details --}}
+                    {{#each products}}
+                    <tr>
+                        <td>{{inc @index}}</td>
+                        <td>{{this.FPname}}</td>
+                        <td>{{this.FPcategory}}</td>
+                        <td>{{this.FPsubcategory}}</td>
+                        <td>{{this.FPofferprice}}</td>
+                        <td>{{this.FPorjprice}}</td>
+                        <td>{{this.FPStock}}</td>
+                        <td>
+                            <img src="/admin/assets/images/offerproduct-images/{{productImages.[0]}}" alt="" width="50px">
+                        </td>
+                        <td>
+                            <button id="remove" class="text-success" onclick="addTag('{{this._id}}')">Add Tag</button>
+                            <a href="/admin/edit/{{this._id}}" class=""><button id="edit"> Edit</button></a>
+                            <button id="remove" onclick="removeProducts('{{this._id}}')">Remove</button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{{!-- Products End --}}

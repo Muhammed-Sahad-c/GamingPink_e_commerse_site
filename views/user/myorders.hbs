@@ -1,0 +1,117 @@
+<style>
+    body {
+        background-color: #eff3f6;
+    }
+
+</style>
+
+<link rel="stylesheet" href="/user/assets/stylesheets/cart.css">
+<link rel="stylesheet" href="/user/assets/stylesheets/orders.css">
+<link rel="stylesheet" href="/user/assets/stylesheets/home.css">
+<link rel="stylesheet" href="/public/user/assets/stylesheets/">
+<link rel="stylesheet" href="/user/assets/stylesheets/orders.css">
+
+{{#if emptyStatus}}
+<div id="cartnoting">
+    <div id="emptyCart">
+        <img src="/user/assets/images/emptycart.svg" alt="">
+        <p>You are not orderd yet!</p>
+        <strong>Add items to it now.</strong> <br>
+        <a href="/">
+            <button id="addProductsToCart">Buy now</button>
+        </a>
+    </div>
+</div>
+{{else}}
+
+<div class="container">
+    <div class="row ">
+
+
+
+
+        {{!-- Pending or shipped --}}
+        {{#each pendingProducts}}
+        <a href="/orderdetailsview/{{this._id}}">
+            <div class="col-xs-12 col-md-12 col-sm-12  orderOuterDiv">
+                <div>
+                    {{#each this.productDetails}}
+                    <div id="ordersFlexOuterDiv">
+                        <div>
+                            <img src="/admin/assets/images/offerproduct-images/{{this.productImages.[0]}}" alt="ss" width="65px">
+                        </div>
+                        <div id="prodDetails">
+                            <p>{{this.FPname}}</p>
+                        </div>
+                        <div style="padding: 2rem;">
+                            <p><i class="fa-sharp fa-solid fa-circle" style="color: rgb(225, 206, 0);"></i></p>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </a>
+        <div class="cancelButtonOuterDiv" style="">
+            <button class="cancelButton" onclick="cancelOrder('{{this._id}}')">cancel</button>
+        </div>
+        {{/each}}
+        {{!-- pending shipped --}}
+
+
+
+        {{!-- Pending or shipped --}}
+        {{#each deliveriedProducts}}
+        <div class="col-xs-12 col-md-12 col-sm-12  orderOuterDiv">
+            <div>
+                <a href="/orderdetailsview/{{this._id}}">
+                    {{#each this.productDetails}}
+                    <div id="ordersFlexOuterDiv">
+                        <div>
+                            <img src="/admin/assets/images/offerproduct-images/{{this.productImages.[0]}}" alt="ss" width="65px">
+                        </div>
+                        <div id="prodDetails">
+                            <p>{{this.FPname}}</p>
+                        </div>
+                        <div style="padding: 2rem;" id="orderStatusSuccess">
+                            <p><i class="fa-sharp fa-solid fa-circle-check"></i></p>
+                        </div>
+                    </div>
+                    {{/each}}
+                </a>
+            </div>
+        </div>
+        {{/each}}
+        {{!-- pending shipped --}}
+
+        {{#each cancellorders}}
+        <div class="col-xs-12 col-md-12 col-sm-12  orderOuterDiv">
+            <div>
+                <a href="/orderdetailsview/{{this._id}}">
+                    {{#each this.productDetails}}
+                    <div id="ordersFlexOuterDiv">
+                        <div>
+                            <img src="/admin/assets/images/offerproduct-images/{{this.productImages.[0]}}" alt="ss" width="65px">
+                        </div>
+                        <div id="prodDetails" class="text-danger">
+                            <p>{{this.FPname}}</p>
+                        </div>
+                        <div style="padding: 2rem;" id="orderStatusCancelled">
+                            <p><i class="fa-solid fa-circle-xmark"></i></p>
+                        </div>
+                    </div>
+                    {{/each}}
+                </a>
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+</div>
+{{/if}}
+
+
+
+
+<script>
+
+</script>

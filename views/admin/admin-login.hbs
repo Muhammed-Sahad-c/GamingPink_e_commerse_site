@@ -1,0 +1,60 @@
+{{!-- Spinner Start --}}
+<div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+{{!-- Spinner End --}}
+
+
+<style>
+
+</style>
+
+ 
+
+{{!-- Login form start--}}
+<div class="container-fluid pt-4 px-4">
+    <div class="text-center rounded p-4">
+
+        <div class="row">
+            <div class="centerdiv pb-5">
+                <div class="col-lg-5 col-12">
+                    <div class="rounded h-100 " style="background-color: rgb(45, 43, 46);; padding: 22px;">
+                        <h6 class="mb-5">LOGIN</h6>
+
+                        {{!-- FORM START --}}
+                        <form action="/admin/adminLogin/" method="post">
+
+
+                            <!-- Product name -->
+                            <div class="form-floating mb-3 text-left">
+                                <small class="text-white">Admin Name</small>
+                                <input type="text" class="form-control" id="floatingInput" value="" name="Aname" required>
+                            </div>
+
+                            <!-- discription -->
+                            <div class="form-floating mb-3 text-left">
+                                <small class="text-white">Password</small>
+                                <input type="text" class="form-control" id="floatingInput" value="" name="Apassword">
+                            </div>
+                            {{#if loginStatus}}
+                            <div>
+                                <p style="color: red;">Login Faild</p>
+                            </div>
+                            {{/if}}
+                            <!-- Submit Button -->
+                            <button type="submit" class="subbutton">Login</button>
+
+
+                        </form>
+                        {{!-- Form END --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- Login Form end --}}
+
+{{!-- content end --}}

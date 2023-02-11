@@ -1,0 +1,78 @@
+{{#if editProfile}} {{!-- ----------------------------------------------------- --}}
+
+{{#each editProfile}}
+<div class="body-content">
+    <div class="">
+        <div class="container">
+            <div class="sign-in-page">
+                <div class="row">
+                    <div class="loginouter" style="padding-top: 3rem;">
+
+                        <div class="col-md-6 col-sm-6 col-xs-12 sign-in mx-0 " style="border-radius: 5px; box-shadow: 0px 1px 8px 4px #dedede">
+                            <div id="formouterDiv">
+                                <h3>Edit Your Details</h3>
+                                <form action="/user/updateuserdetails/{{this._id}}" method="post">
+                                    <label for="" style="color: red;font-weight: 100;">Username</label> <br>
+                                    <input type="text" value="{{SUusername}}" style="width: 100% ; padding: 1rem; margin-bottom:1rem;" name="SUusername">
+                                    <a href=""><button type="submit">Update</button></a>
+                                </form>
+                                <div id="Addressmanagement">
+                                    <h4 style="font-size: 2rem;">Saved addresess</h4>
+                                    {{#each this.userAddrsess}}
+                                    <p style="border: 1px solid grey; padding: 1rem; border-radius: 3px;">{{this.Address}},{{this.PIN}},{{this.Street}},{{this.City}},{{this.District}}</p><br>
+                                    {{/each}}
+                                </div>
+                                <a href="/addaddress/"><i class="fa-solid fa-plus"></i> add new address....</a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
+
+{{else}}{{!-- ----------------------------------------------------- --}}
+<div class="body-content">
+    <div class="">
+        <div class="container">
+            <div class="sign-in-page">
+                <div class="row">
+                    <div class="loginouter" style="padding-top: 3rem;">
+                        {{#each userData}}
+                        <div class="col-md-6 col-sm-6 col-xs-12 sign-in mx-0 " style="border-radius: 5px; box-shadow: 0px 1px 8px 1px #dedede">
+                            <div id="userProfile">
+                                <div class=" text-center" style="padding-top:1rem ;">
+                                    <div id="profileOuter" class="">
+                                        <span>
+                                            <i class="fa-solid fa-circle-user fa-3x"></i>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span>
+                                            <h4>{{SUusername}} </h4>
+                                        </span>
+                                    </div>
+
+                                    <h5><strong>ID :</strong>{{this._id}}</h5>
+                                    <ul>
+                                        <p>{{SUemail}}</p>
+                                    </ul>
+                                    <div class="userbtnouterdiv">
+                                        <a href="/editprofile" class="profilebtns btn">My orders</a>
+                                        <a href="/editprofile/{{this._id}}" class="profilebtns btn">Edit Profile</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}{{!-- ----------------------------------------------------- --}}

@@ -1,0 +1,61 @@
+ 
+
+<style>
+    #addCouponBtn{
+        background-color:inherit;
+        color: red;
+        border: none;
+    }
+
+    #addCouponBtn:hover{
+        text-decoration: underline;
+        transition: 0.5s;
+        color: rgb(203, 4, 4);
+    }
+</style>
+
+
+
+
+{{!-- Products Start --}}
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-secondary text-center rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h6 class="mb-0">COUPONS</h6>
+            <button class="mx-4 my-4" onclick="addCoupon()" id="addCouponBtn">Add Coupon</button>
+        </div>
+        <div class="table-responsive">
+            <table class="table text-start align-middle table-bordered table-hover mb-0" id="test">
+                <thead>
+                    <tr class="text-white">
+                        <th scope="col">No</th>
+                        <th scope="col">Coupon Name</th>
+                        <th scope="col">Code</th>
+                        <th scope="col">Exipiry Date</th>
+                        <th scope="col">Offer</th>
+                        <th scope="col">Status</th>
+                        {{!-- <th scope="col">Action</th>f --}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{!-- coupon details --}}
+                    {{#each coupnDetails}}
+                    <tr>
+                        <td>{{inc @index}}</td>
+                        <td>{{this.couponName}}</td>
+                        <td>{{this.couponCode}}</td>
+                        <td>{{this.couponDate}}</td>
+                        <td>₹{{this.couponDiscount}}</td>
+                        {{#if this.exipiryStatus}}
+                        <td class="text-danger">Expired</td>
+                        {{else}}
+                        <td class="text-success">Active</td>
+                        {{/if}}
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{{!-- Products End --}}

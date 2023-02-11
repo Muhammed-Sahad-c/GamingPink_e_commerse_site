@@ -1,0 +1,117 @@
+<link rel="stylesheet" href="/user/assets/stylesheets/compare-products.css">
+{{#if emptyStatus}}
+<div id="cartnoting">
+    <div id="emptyCart">
+        <img src="/user/assets/images/emptycart.svg" alt="">
+        <p>No Products!</p>
+        <strong>Add items to it now.</strong> <br>
+        <a href="/">
+            <button id="addProductsToCart">Add Products</button>
+        </a>
+    </div>
+</div>
+{{else}}
+<div class="body-content outer-top-xs">
+    <div class="container">
+        <div class="product-comparison">
+            <div>
+                <h1 class="page-title text-center heading-title text-uppercase">PRODUCT COMPARISON</h1>
+                <div class="table-responsive">
+                    <table class="table compare-table inner-top-vs">
+                        <tr>
+                            <th></th>
+                            {{#each compareProducts}}
+                            {{#each this.products}}
+                            <td>
+                                <div class="">
+                                    <img alt="OOPS NOT FOUND" src="/admin/assets/images/offerproduct-images/{{this.productImages.[0]}}" style="width: 30%;">
+                                </div>
+                            </td>
+                            {{/each}}
+                            {{/each}}
+
+                        </tr>
+                        <tr>
+                            <th>Products</th>
+                            {{#each compareProducts}}
+                            {{#each this.products}}
+                            <td>
+                                <div class="product">
+                                    <div class="product-image">
+                                        <div class="product-info text-left">
+                                            <h3 class="name"><a href="detail.html">{{this.FPname}}</a></h3>
+                                            {{#if outOfStock}}
+                                            <div class="action">
+                                                <button id="addToCartBtnInComparedisabled" style="cursor: not-allowed;" onclick="addToCart('{{this._id}}')" disabled><i class="fa-solid fa-shopping-cart"></i> ADD TO CART</button>
+                                            </div>
+                                            {{else}}
+                                            <div class="action">
+                                                <button id="addToCartBtnInCompare" onclick="addToCart('{{this._id}}')"><i class="fa-solid fa-shopping-cart"></i> ADD TO CART</button>
+                                            </div>
+                                            {{/if}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            {{/each}}
+                            {{/each}}
+                        </tr>
+                        <tr>
+                            <th>Price</th>
+                            {{#each compareProducts}}
+                            {{#each this.products}}
+                            <td>
+                                <div class="product-price">
+                                    <span class="price" style="color: green;">₹{{this.FPofferprice}}</span>
+                                    <span class=" price-before-discount">₹{{this.FPorjprice}}</span>
+                                </div>
+                            </td>
+                            {{/each}}
+                            {{/each}}
+                        </tr>
+
+                        <tr>
+                            <th>Description</th>
+                            {{#each compareProducts}}
+                            {{#each this.products}}
+                            <td>
+                                <p class="text">
+                                    {{this.FPdiscription}}
+                                </p>
+                            </td>
+                            {{/each}}
+                            {{/each}}
+                        </tr>
+
+                        <tr>
+                            <th>Availability</th>
+                            {{#each compareProducts}}
+                            {{#each this.products}}
+                            {{#if outOfStock}}
+                            <td>
+                                <p class="in-stock" style="color: rgb(255, 6, 6);">Out of Stock</p>
+                            </td>
+                            {{else}}
+                            <td>
+                                <p class="in-stock" style="color: green;">In stock</p>
+                            </td>
+                            {{/if}}
+                            {{/each}}
+                            {{/each}}
+                        </tr>
+
+                        <tr>
+                            <th></th>
+                            {{#each compareProducts}}
+                            {{#each this.products}}
+                            <td class='text-first'><a href="/removeproductfromcompare/{{this._id}}">Remove</a></td>
+                            {{/each}}
+                            {{/each}}
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}

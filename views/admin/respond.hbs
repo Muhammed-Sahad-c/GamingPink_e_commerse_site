@@ -1,0 +1,45 @@
+{{!-- Spinner Start --}}
+<div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+
+{{!-- Status Start--}}
+<div class="container-fluid pt-4 px-4">
+    <div class="row vh-100 bg-secondary rounded align-items-center justify-content-center mx-0">
+        {{#if productAddedStatus}}
+        <div class="col-md-6 text-center p-4" id="respondOuter">
+            <i class="bi bi-check2-circle display-1 text-primary"></i>
+            <h1 class="display-1 fw-bold">Success!</h1>
+            <h1 class="mb-4">Product added.</h1>
+        </div>
+        {{else if productEditStatus}}
+        <div class="col-md-6 text-center p-4" id="respondOuter">
+            <i class="bi bi-check2-circle display-1 text-primary"></i>
+            <h1 class="display-1 fw-bold">Success!</h1>
+            <h1 class="mb-4">Product Updated.</h1>
+        </div>
+        {{else if ProductDeletedStatus}}
+        <div class="col-md-6 text-center p-4" id="respondOuter">
+            <i class="bi bi-check2-circle display-1 text-primary"></i>
+            <h1 class="display-1 fw-bold">Success!</h1>
+            <h1 class="mb-4">Product Removed.</h1>
+        </div>
+        {{else if offerProductStatus}}
+        <div class="col-md-6 text-center p-4" id="respondOuter">
+            <i class="bi bi-check2-circle display-1 text-primary"></i>
+            <h1 class="display-1 fw-bold">Success!</h1>
+            <h1 class="mb-4">Offer Product added!</h1>
+        </div>
+        {{else if blockStatus}}
+        <div class="col-md-6 text-center p-4" id="respondOuter">
+            <i class="bi bi-check2-circle display-1 text-primary"></i>
+            <h1 class="display-1 fw-bold">Success!</h1>
+            <h1 class="mb-4">Blocked</h1>
+        </div>
+        {{/if}}
+    </div>
+</div>
+{{!-- Status End --}}

@@ -1,0 +1,49 @@
+{{!-- Products add form start--}}
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-secondary text-center rounded p-4">
+
+        <div class="row">
+            <div class="centerdiv pb-5">
+                <div class="col-lg-9 col-12">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h6 class="mb-5">ADD OFFER PRODUCT</h6>
+
+                        {{!-- FORM START --}}
+                        <form action="/admin/addOfferProduct" method="post" enctype="multipart/form-data">
+
+
+                            <!-- Product name -->
+                            <div class="form-floating mb-3 text-left">
+                                <small class="text-white">Product name</small>
+                                <input type="text" class="form-control" id="floatingInput" name="OPname" required>
+                            </div>
+
+                            <!-- discription -->
+                            <div class="form-floating mb-3 text-left">
+                                <small class="text-white">Discription</small>
+                                <input type="text" class="form-control" id="floatingInput" name="OPdiscription">
+                            </div>
+
+                            <!-- Main image -->
+                            <div class="mb-3 text-left">
+                                <small class="text-white">Main Image</small>
+                                <input class="form-control bg-dark" type="file" id="formFile" name="OPimage" required>
+                            </div>
+
+                            <!-- sub images -->
+                            {{!-- <div class="mb-3">
+                                <small class="text-white">Sub images</small>
+                                <input class="form-control bg-dark" type="file" id="formFileMultiple" name="FPsubimage" multiple>
+                            </div> --}}
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="subbutton">Submit</button>
+                        </form>
+                        {{!-- Form END --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- Products add form END--}}

@@ -1,0 +1,163 @@
+<style>
+    body {
+        background-color: #eff3f6;
+        font-family: "Barlow", sans-serif;
+    }
+</style>
+
+<link rel="stylesheet" href="/user/assets/stylesheets/cart.css">
+
+{{#if emptyStatus}}
+<div id="cartnoting">
+    <div id="emptyCart">
+        <img src="/user/assets/images/emptycart.svg" alt="">
+        <p>Your Cart is Empty!</p>
+        <strong>Add items to it now.</strong> <br>
+        <a href="/">
+            <button id="addProductsToCart">Add Products</button>
+        </a>
+    </div>
+</div>
+{{else}}
+<div class="container">
+    <div class="row ">
+        <h3 style="padding-left: 1.4rem;">CART</h3>
+        {{#each cartProductDetails}}
+        <div class="col-xs-12 col-md-4 col-sm-12 " style="margin-top: 2rem; margin-bottom: 2rem;">
+            <div id="flexdiv" style="display: flex; justify-content: flex-start; align-items: center; margin-top: 2rem; background-color: rgb(252, 252, 252); border-radius: 5px; height: 18rem;">
+                <a href="/detail/{{this.productId}}">
+
+                    <div style="padding: 1rem;">
+                        <img src="/admin/assets/images/offerproduct-images/{{this.products.productImages.[0]}}" alt="" width="100px">
+                    </div>
+                </a>
+                <div style="padding-right: 0rem;" id="prodDetails">
+                    <a href="/detail/{{this.productId}}">
+                        <h4 class="text-uppercase">{{this.products.FPname}}</h4>
+                    </a>
+                    <i class="fa-solid fa-star ratingclr"></i>
+                    <i class="fa-solid fa-star ratingclr"></i>
+                    <i class="fa-solid fa-star ratingclr"></i>
+                    <i class="fa-solid fa-star ratingclr"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <h4 style="color: rgb(0, 253, 0);">₹<span id="total{{this.productId}}">{{totalDiscoutPrice}}</span></h4>
+                </div>
+                <a href="#">
+                    <div style="margin-left:2rem; text-align: left; padding-right: 2rem;">
+                        <button id="cartRemoveBtn" class="removeBtn" onclick="removeCartProductsBtn('{{this._id}}','{{this.productId}}')"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        {{!-- <a href="/deletecartproducts"></a> --}}
+                    </div>
+                </a>
+            </div>
+            {{!-- {{/each}} --}}
+            {{#if this.products.outOfStock}}
+            <div id="quantityOuterDiv">
+                <div style="padding-right: 1rem; color: red;">
+                    Out Of Stock
+                </div>
+                <div style="padding-left: 1rem;">
+                    <button class="changeQuantityBtn" disabled id="decreaseQuantityBtn" onclick="changeQuantity('{{this._id}}','{{this.productId}}',-1)">-</button>
+                    <span style="padding-left:.5rem; padding-right:.5rem;" id="{{this.productId}}">{{quantity}}</span>
+                    <button class="changeQuantityBtn" disabled onclick="changeQuantity('{{this._id}}','{{this.productId}}',1)">+</button>
+                </div>
+            </div>
+            {{else}}
+            <div id="quantityOuterDiv">
+                <div style="padding-right: 1rem; ">
+                    Quantity
+                </div>
+                <div style="padding-left: 1rem;">
+                    <button class="changeQuantityBtn" id="decreaseQuantityBtn" onclick="changeQuantity('{{this._id}}','{{this.productId}}',-1)">-</button>
+                    <span style="padding-left:.5rem; padding-right:.5rem;" id="{{this.productId}}">{{quantity}}</span>
+                    <button class="changeQuantityBtn" onclick="changeQuantity('{{this._id}}','{{this.productId}}',1)">+</button>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+        {{/each}}
+        {{!-- Product details --}}
+    </div>
+</div>
+{{!-- checkout details --}}
+<div class="body-content outer-top-xs" style="margin-bottom: 6rem;">
+    <div class="container">
+        <div class="row ">
+            <div class="col-xs-12" style="overflow-x: hidden;">
+                <div class="shopping-cart">
+                    <div class="col-md-12 col-sm-12  cart-shopping-total" style="background-color: white;">
+                        <table class="table" style="background-color: white;">
+                            <thead>
+                                <tr>
+
+                                    <th>
+
+                                        <div class="cart-sub-total">
+                                            Total Items<span class="inner-left-md">{{priceDetails.cartPrdctCount}}</span>
+                                        </div>
+                                        <div class="cart-sub-total">
+                                            Total Price<span class="inner-left-md" id="subTotal">₹{{priceDetails.subTotal}}</span>
+                                        </div>
+                                        <div class="cart-sub-total">
+                                            Discount<span class="inner-left-md"><span style="color: green;">- <span id="discount">{{priceDetails.discount}}</span></span></span>
+                                        </div>
+                                        <div class="cart-sub-total">
+                                            Delivery Charges<span class="inner-left-md"><span style="color: green;">FREE</span></span>
+                                        </div>
+                                        <div class="cart-grand-total" style="color: green;">
+                                            Grand Total<span class="inner-left-md">₹<span id="grandTotal">{{priceDetails.grandTotal}}</span></span>
+                                        </div>
+
+                                    </th>
+
+
+                                </tr>
+
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td class="text-left">
+                                        <div class="cart-checkout-btn pull-right">
+                                            {{!-- <a href="/placeorder">
+                                            </a> --}}
+                                            {{#if placeOrderDisableStatus}}
+                                            <button type="submit" id="checkoutBTN" class="btn btn-primary checkout-btn" disabled>PLACE ORDER</button>
+                                            {{else}}
+                                            <button type="submit" id="checkoutBTN" class="btn btn-primary checkout-btn" onclick="createORDERID()">PLACE ORDER</button>
+                                            {{/if}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr style="">
+                                    <td>
+                                        <div class="cart-checkout-btn  text-right">
+                                            <h4>user ID : {{name._id}}</h4>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}
+
+
+
+
+
+<script>
+    const createORDERID = () => {
+        $.ajax({
+            url: '/createorderid',
+            method: 'post',
+            success: (orderID) => {
+                window.location.href = './placeorder/' + orderID
+            }
+
+        })
+    }
+</script>

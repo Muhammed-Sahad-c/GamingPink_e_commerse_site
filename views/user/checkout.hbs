@@ -1,0 +1,242 @@
+<script src="https://www.paypal.com/sdk/js?client-id=AV_g7GJYo1P-7OeZLpf9WIAHGpLn_7LQqOOOdOioBzpWD95LXeHz_NGOLXgL-MAZRee6090OtNgMZemh&currency=USD&disable-funding=credit,card"></script>
+
+<link rel="stylesheet" href="/user/assets/stylesheets/checkout.css">
+
+<div class="body-content">
+    <div class="container">
+        <div class="checkout-box ">
+            <div class="row">
+                <div class="col-xs-12   rht-col">
+                    <div class="panel-group checkout-steps" id="accordion">
+                        <!-- checkout-step-01  -->
+                        <div class="panel panel-default checkout-step-01" style="box-shadow: 0px 0px 37px -10px grey; border-radius: .5rem;">
+
+                            <!-- panel-heading -->
+                            <div class="panel-heading">
+                                <h4 class="unicase-checkout-title">
+                                    <a data-toggle="collapse" class="" data-parent="#accordion" href="#collapseOne">
+                                        <span>1</span>CHECKOUT METHOD
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in">
+
+                                <!-- panel-body  -->
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <!-- Address selection page -->
+                                        <div class="col-md-6 col-sm-6 guest-login">
+                                            <div id="addressBody">
+                                                <h3 class="text-uppercase">Select Address</h3>
+                                                {{#if data}}
+                                                <div id="addressFormOuter">
+                                                    <form action="/selectaddressforordersdetails" method="post" class="text-uppercase">
+                                                        {{#each data}}
+                                                        <input type="radio" id="selectedAddress" name="index" value="" onclick="addressSelection('{{@index}}')">
+                                                        <p style="">{{this.addressName}},{{this.Address}} {{this.Street}},{{this.City}},{{this.District}}</p>
+                                                        {{/each}}
+                                                    </form>
+                                                </div>
+                                                <button onclick="addNewAddress()">Add new address</button>
+                                                {{else}}
+                                                <button onclick="addNewAddress()">Add new address</button>
+                                                {{/if}}
+                                            </div>
+
+                                        </div>
+
+                                        <!-- Address selection page End -->
+                                        <div class="col-md-6 col-sm-6 guest-login">
+                                            <div id="addressBody">
+                                                <div class="shopping-cart" style="display: flex; justify-content:flex-end; align-items: center; width:100%;">
+                                                    <div class="col-md-12 col-sm-12  cart-shopping-total" style="background-color: white;">
+                                                        <table class="table" style="background-color: white;">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>
+                                                                        <div class="cart-sub-total">
+                                                                            Total Price<span class="inner-left-md">₹ <span id="subtotal">{{priceDetails.subTotal}}</span></span>
+                                                                        </div>
+                                                                        <div class="cart-grand-total" style="color: green;">
+                                                                            Grand Total<span class="inner-left-md">₹<span id="grandTotal">{{priceDetails.grandTotal}}</span></span>
+                                                                        </div>
+                                                                        <div class="cart-grand-total" style="color: rgb(0, 0, 0); margin-top: 2rem;">
+                                                                            <strong style="font-size: 1.5rem;">You will save <span style="font-size: 1.7rem; color: green;"> ₹<span id="discount">{{priceDetails.discount}}</span></span> in this order!</strong>
+                                                                        </div>
+                                                                        {{#if couponStatus}}
+                                                                        <div id="couponApplied">
+                                                                            <small>
+                                                                                you will save<strong> ₹{{priceDetails.couponDiscount}}</strong> through this purchase by using the coupon!
+                                                                            </small>
+                                                                        </div>
+                                                                        <button onclick="removeCoupon('{{priceDetails.couponCode}},{{createdOrderId}}')" id="couponRemove">Remove</button>
+                                                                        {{else}}
+                                                                        <div style="padding-top: 2rem;">
+                                                                            <button style="width: 100%; padding: 1rem;" id="cpnaplybtn" onclick="applayCoupon('{{name._id}}')"><i class="fa-solid fa-ticket"></i> Apply Coupon</button>
+                                                                            <div id="couponStatusDiv">
+
+                                                                            </div>
+                                                                            {{!-- <button style="display: none;" id="couponRemove">remove</button> --}}
+                                                                        </div>
+                                                                        {{/if}}
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="text-left">
+                                                                        <h4 style="font-weight: bold; padding-bottom: 1rem;" class="text-uppercase">Select Payment Methods</h4>
+                                                                        <div id="paypal-button-container"></div>
+                                                                        <h4 class="text-center">OR</h4>
+                                                                        <div id="payemntMehtods">
+                                                                            <form action="/checkout" method="post" id="chckout_Form">
+                                                                                <input type="radio" id="cod" name="payment-method" value="Cash_On_Delivery">
+                                                                                <label for="cod" class="text-uppercase">Cash On Delivery</label><br>
+                                                                                <h4 style="font-weight:bold;" class="text-uppercase">Selected Address</h4>
+                                                                                <input type="text" id="test" value="selecte any address" disabled>
+                                                                                <button type="submit" id="checkoutBTN" class="btn btn-primary checkout-btn">PROCCED TO CHEKOUT</button>
+                                                                            </form>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr style="">
+                                                                    <td>
+                                                                        <div class="cart-checkout-btn  text-start">
+                                                                            <h4><span id="orderid" hidden>{{createdOrderId}}</span></h4>
+                                                                            <h4><span id="userid" hidden>{{name}}</span></h4>
+
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Total cash & payment methods -->
+
+                                        <!-- Total cash & payment methods -->
+                                    </div>
+                                </div>
+                                <!-- panel-body  -->
+
+                            </div>
+                        </div>
+                        <!-- checkout-step-01  -->
+                        <!-- checkout-step-02  -->
+                        <div class="panel panel-default checkout-step-02">
+                            <div class="panel-heading">
+                                <h4 class="unicase-checkout-title">
+                                    <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseTwo">
+                                        <span>2</span>Shipping Information
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    Shipping information is important in e-commerce as it determines where the purchased products will be delivered. Shipping information typically includes:
+
+                                    Name: The name of the person who the shipment is being sent to.
+
+                                    Address: The shipping address, including street address, city, state, and zip code.
+
+                                    Email Address: An email address where the customer can receive updates and tracking information for the shipment.
+
+                                    Phone Number: A phone number that the customer can be reached at in case of any issues or questions related to the shipment.
+
+                                    Shipping Method: The method of shipping the customer has selected, such as standard, express, or overnight.
+
+                                    Delivery Date: The date the customer would like to receive the shipment, if applicable.
+
+                                    Special Instructions: Any special instructions or requests the customer has regarding the shipment, such as specific delivery instructions or gift wrapping.
+
+                                    It's important to ensure that the shipping information is accurate and up-to-date to ensure smooth and timely delivery of the purchased products. Some e-commerce websites offer the ability for customers to save multiple shipping addresses for their convenience. </div>
+                            </div>
+                        </div>
+                        <!-- checkout-step-02  -->
+
+                        <!-- checkout-step-03  -->
+                        <div class="panel panel-default checkout-step-03">
+                            <div class="panel-heading">
+                                <h4 class="unicase-checkout-title">
+                                    <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseThree">
+                                        <span>3</span>Billing Information
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    Billing information is a critical component of an e-commerce website, as it is the information used to charge the customer for the products or services they purchase.
+
+                                    Typically, billing information includes:
+
+                                    Name: The name of the person who is being billed.
+
+                                    Address: The billing address, including street address, city, state, and zip code.
+
+                                    Email Address: An email address where the customer can receive receipts and other important information related to the transaction.
+
+                                    Phone Number: A phone number that the customer can be reached at in case of any issues or questions related to the transaction.
+
+                                    Payment Method: Information about the payment method being used, such as a credit card number, expiration date, and security code.
+
+                                    Billing Cycle: The billing cycle for the customer, such as monthly or annually.
+
+                                    It's important to ensure that the billing information is securely stored and protected to prevent fraud and unauthorized access. Many e-commerce websites use secure payment gateways, such as PayPal or Stripe, to process payments and manage billing information.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- checkout-step-03  -->
+
+
+
+                        <!-- checkout-step-05  -->
+                        <div class="panel panel-default checkout-step-05">
+                            <div class="panel-heading">
+                                <h4 class="unicase-checkout-title">
+                                    <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseFive">
+                                        <span>5</span>Payment Information
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseFive" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    It's always a good idea to have your payment information ready when shopping online, and PayPal is one of the most popular options for e-commerce payments. If you're wondering how to use PayPal for cash on delivery, here's what you need to know.
+
+                                    When using PayPal for cash on delivery, you'll need to provide your PayPal email address at checkout. Once your order is confirmed, the seller will send a request for payment to your PayPal account. You'll have 10 days to complete the payment, and you can do so by either linking a bank account or debit/credit card to your PayPal account, or by using PayPal balance funds. Once the payment is made, the seller will ship the order and you should receive it within 7-10 days.
+
+                                    E-commerce is booming these days and more and more people are shopping online for their needs. There are many payment options available for online shoppers and one of the most popular ones is PayPal. You can use PayPal to pay for your purchases on many websites and it is a very safe and secure way to do so. Another popular payment option is cash on delivery, which allows you to pay for your purchase when it arrives at your doorstep. This is a great option for those who do not want to use their credit or debit cards online. </div>
+                            </div>
+                        </div>
+                        <!-- checkout-step-05  -->
+
+                        <!-- checkout-step-06  -->
+                        <div class="panel panel-default checkout-step-06">
+                            <div class="panel-heading">
+                                <h4 class="unicase-checkout-title">
+                                    <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseSix">
+                                        <span>6</span>Order Review
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseSix" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    If you're anything like me, you love to read online reviews before making a purchase. It's so helpful to see what other people think about a product or service before spending your hard-earned money on it! I'm also the type of person who likes to leave reviews myself, after using a product or service, to help others out.
+
+                                    When it comes to rating a product or service that I've used, I generally take into account a few different factors. First of all, did the product or service meet my needs and expectations? If not, that's obviously going to reflect in my rating. Secondly, how easy was it to use the product or service? If it was complicated and frustrating, that will definitely affect my rating. And lastly, how good was the value for money? If I felt like I got ripped off, that will show in my rating as well.
+
+                                    All of these factors are important to me when I'm rating something online. And I think that other people probably take similar things into account when they're writing their own reviews. So if you're ever wondering whether or not to trust an online review, just keep these things in mind!
+                                </div>
+                            </div>
+                        </div>
+                        <!-- checkout-step-06  -->
+
+                    </div><!-- /.checkout-steps -->
+                </div>
+
+            </div><!-- /.row -->
+        </div><!-- /.checkout-box -->
+
+    </div><!-- /.container -->
+</div>

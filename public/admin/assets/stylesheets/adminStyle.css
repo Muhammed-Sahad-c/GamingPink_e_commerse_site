@@ -1,0 +1,581 @@
+/********** Template CSS **********/
+:root {
+  --primary: #eb1616;
+  --secondary: #191c24;
+  --light: #6c7293;
+  --dark: #000000;
+}
+
+* {
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.back-to-top {
+  position: fixed;
+  display: none;
+  right: 45px;
+  bottom: 45px;
+  z-index: 99;
+}
+
+/*** Spinner ***/
+#spinner {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-out, visibility 0s linear 0.5s;
+  z-index: 99999;
+}
+
+#spinner.show {
+  transition: opacity 0.5s ease-out, visibility 0s linear 0s;
+  visibility: visible;
+  opacity: 1;
+}
+
+/*** Button ***/
+.btn {
+  transition: 0.5s;
+}
+
+.btn-square {
+  width: 38px;
+  height: 38px;
+}
+
+.btn-sm-square {
+  width: 32px;
+  height: 32px;
+}
+
+.btn-lg-square {
+  width: 48px;
+  height: 48px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: normal;
+  border-radius: 50px;
+}
+
+/*** Layout ***/
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--secondary);
+  transition: 0.5s;
+  z-index: 999;
+}
+
+.content {
+  margin-left: 250px;
+  min-height: 100vh;
+  background: var(--dark);
+  transition: 0.5s;
+}
+
+@media (min-width: 992px) {
+  .sidebar {
+    margin-left: 0;
+  }
+
+  .sidebar.open {
+    margin-left: -250px;
+  }
+
+  .content {
+    width: calc(100% - 250px);
+  }
+
+  .content.open {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .sidebar {
+    margin-left: -250px;
+  }
+
+  .sidebar.open {
+    margin-left: 0;
+  }
+
+  .content {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+/*** Navbar ***/
+.sidebar .navbar .navbar-nav .nav-link {
+  padding: 7px 20px;
+  color: var(--light);
+  font-weight: 500;
+  border-left: 3px solid var(--secondary);
+  border-radius: 0 30px 30px 0;
+  outline: none;
+}
+
+.sidebar .navbar .navbar-nav .nav-link:hover,
+.sidebar .navbar .navbar-nav .nav-link.active {
+  color: var(--primary);
+  background: var(--dark);
+  border-color: var(--primary);
+}
+
+.sidebar .navbar .navbar-nav .nav-link i {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dark);
+  border-radius: 40px;
+}
+
+.sidebar .navbar .navbar-nav .nav-link:hover i,
+.sidebar .navbar .navbar-nav .nav-link.active i {
+  background: var(--secondary);
+}
+
+.sidebar .navbar .dropdown-toggle::after {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  content: "\f107";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  transition: 0.5s;
+}
+
+.sidebar .navbar .dropdown-toggle[aria-expanded="true"]::after {
+  transform: rotate(-180deg);
+}
+
+.sidebar .navbar .dropdown-item {
+  padding-left: 25px;
+  border-radius: 0 30px 30px 0;
+  color: var(--light);
+}
+
+.sidebar .navbar .dropdown-item:hover,
+.sidebar .navbar .dropdown-item.active {
+  background: var(--dark);
+}
+
+.content .navbar .navbar-nav .nav-link {
+  margin-left: 25px;
+  padding: 12px 0;
+  color: var(--light);
+  outline: none;
+}
+
+.content .navbar .navbar-nav .nav-link:hover,
+.content .navbar .navbar-nav .nav-link.active {
+  color: var(--primary);
+}
+
+.content .navbar .sidebar-toggler,
+.content .navbar .navbar-nav .nav-link i {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dark);
+  border-radius: 40px;
+}
+
+.content .navbar .dropdown-item {
+  color: var(--light);
+}
+
+.content .navbar .dropdown-item:hover,
+.content .navbar .dropdown-item.active {
+  background: var(--dark);
+}
+
+.content .navbar .dropdown-toggle::after {
+  margin-left: 6px;
+  vertical-align: middle;
+  border: none;
+  content: "\f107";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  transition: 0.5s;
+}
+
+.content .navbar .dropdown-toggle[aria-expanded="true"]::after {
+  transform: rotate(-180deg);
+}
+
+@media (max-width: 575.98px) {
+  .content .navbar .navbar-nav .nav-link {
+    margin-left: 15px;
+  }
+}
+
+/*** Date Picker ***/
+.bootstrap-datetimepicker-widget.bottom {
+  top: auto !important;
+}
+
+.bootstrap-datetimepicker-widget .table * {
+  border-bottom-width: 0px;
+}
+
+.bootstrap-datetimepicker-widget .table th {
+  font-weight: 500;
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu {
+  padding: 10px;
+  border-radius: 2px;
+}
+
+.bootstrap-datetimepicker-widget table td.active,
+.bootstrap-datetimepicker-widget table td.active:hover {
+  background: var(--primary);
+}
+
+.bootstrap-datetimepicker-widget table td.today::before {
+  border-bottom-color: var(--primary);
+}
+
+/*** Testimonial ***/
+.progress .progress-bar {
+  width: 0px;
+  transition: 2s;
+}
+
+/*** Testimonial ***/
+.testimonial-carousel .owl-dots {
+  margin-top: 24px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.testimonial-carousel .owl-dot {
+  position: relative;
+  display: inline-block;
+  margin: 0 5px;
+  width: 15px;
+  height: 15px;
+  border: 5px solid var(--primary);
+  border-radius: 15px;
+  transition: 0.5s;
+}
+
+.testimonial-carousel .owl-dot.active {
+  background: var(--dark);
+  border-color: var(--primary);
+}
+
+.mychange {
+  font-size: 2rem;
+}
+
+body h6 {
+  font-size: 2rem;
+}
+
+body a {
+  text-decoration: none;
+}
+
+body a:hover {
+  text-decoration: none;
+}
+
+.table-responsive .table {
+  --bs-table-bg: rgba(0, 0, 0, 0);
+  --bs-table-striped-color: #6c7293;
+  --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+  --bs-table-active-color: #6c7293;
+  --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+  --bs-table-hover-color: #6c7293;
+  --bs-table-hover-bg: rgb(0 0 0);
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #6c7293;
+  vertical-align: top;
+  border-color: #000;
+}
+
+.table-responsive thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.table-responsive thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.table-responsive .table-bordered > thead > tr > th,
+.table-bordered > thead > tr > td {
+  border-bottom-width: 2px solid black;
+}
+
+.table-responsive .table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+  border: 1px solid #000;
+}
+
+/* add product button */
+
+.addProductButton {
+  background-color: green;
+  border: none;
+  border-radius: 22px;
+  z-index: 123;
+  transition: 0.4s;
+}
+.addProductButton i {
+  color: white;
+}
+
+.addProductButton:hover {
+  background: #035a03;
+  transition: 0.4s;
+}
+
+.table-responsive td button {
+  border: none;
+  transition: 0.4s;
+}
+
+#edit {
+  /* display: none; */
+  color: rgb(56, 131, 206);
+  background-color: inherit;
+  transition: 0.5s;
+  font-size: 0.7rem;
+}
+
+#remove {
+  /* display: none; */
+  color: rgb(206, 56, 56);
+  background-color: inherit;
+  transition: 0.5s;
+  font-size: 0.7rem;
+}
+
+.table-responsive tr:hover #edit {
+  /* transition: 0.5s; */
+  /* display: inline; */
+}
+
+.table-responsive tr:hover #remove {
+  transition: 0.5s;
+  display: inline;
+}
+
+.centerdiv {
+  /* display: grid;
+  place-items: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.centerdiv .form-floating {
+  text-align: left;
+}
+
+.centerdiv .form-floating > .form-control:focus,
+.form-floating > .form-control:not(:placeholder-shown) {
+  padding-top: 1.625rem;
+  font-size: 15px;
+  padding-bottom: 1.625rem;
+}
+
+.centerdiv .form-floating > .form-select {
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  font-size: 14px;
+}
+
+.centerdiv .form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #6c7293;
+  background-color: #000;
+  background-clip: padding-box;
+  border: 1px solid #000;
+  appearance: none;
+  border-radius: 5px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.subbutton {
+  width: 100%;
+  color: white;
+  background-color: green;
+  margin-top: 12px;
+  text-align: center;
+  padding: 6px;
+  border: none;
+  border-radius: 3px;
+  transition: 0.5s;
+  font-weight: 500;
+}
+
+.subbutton:hover {
+  transition: 0.5s;
+  background-color: #035a03;
+}
+
+#deletedhistorybtn {
+  background-color: inherit;
+  border: none;
+}
+
+#deletedhistorybtn:hover {
+  transition: 0.5s;
+  color: red;
+  background-color: inherit;
+  text-decoration: underline;
+}
+
+#addProductsbtn {
+  background-color: inherit;
+  border: none;
+}
+
+#addProductsbtn:hover {
+  transition: 0.5s;
+  color: red;
+  background-color: inherit;
+  text-decoration: underline;
+}
+
+/* add product form */
+
+.categorydisabled:hover {
+  color: rgb(255, 255, 255);
+  cursor: not-allowed;
+}
+
+/* ADD CATEGORY PAGE  */
+#deletecategorybtn {
+  /* display: none; */
+}
+#editordelete:hover h6 {
+  /* display: none; */
+  /* transition: 0.5s; */
+}
+
+#editordelete:hover #deletecategorybtn {
+  /* display: block; */
+}
+
+#categoryinput {
+  padding: 0.5rem;
+  background-color: #191c24;
+  color: white;
+  border: none;
+  text-align: center;
+  outline: none;
+  border-radius: 3px;
+}
+
+.addcategorybtn {
+  padding: 0.5rem;
+  background: #009f00c9;
+  color: white;
+  border-radius: 3px;
+}
+
+.addcategorybtn:hover {
+  background: #02bb02c9;
+}
+
+.commonBlue {
+  color: rgb(41, 91, 255);
+}
+
+.commonBlue a:hover {
+  color: green;
+}
+
+.use {
+  background-color: inherit;
+  /* display: none; */
+  color: rgb(41, 91, 255);
+  padding: 0rem 1rem 0rem 1rem;
+}
+
+.use {
+  font-size: 0.7rem;
+
+  background-color: inherit;
+}
+
+.use:hover {
+  text-decoration: underline;
+}
+
+.table-responsive tr:hover .use {
+  transition: 0.5s;
+  /* display: inline; */
+}
+
+.remove {
+  /* display: none; */
+  font-size: 0.7rem;
+
+  background-color: inherit;
+  color: red;
+}
+
+.remove:hover {
+  text-decoration: underline;
+}
+
+.table-responsive tr:hover .remove {
+  /* transition: 0.5s; */
+  /* display: inline; */
+  /* padding: 0rem 1rem 0rem 1rem; */
+}
+
+td,
+th {
+  font-size: 12px;
+}

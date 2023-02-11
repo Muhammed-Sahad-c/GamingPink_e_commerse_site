@@ -1,0 +1,73 @@
+#wideBanners {
+  background-color: white;
+}
+
+.subBanners {
+  background-color: red;
+
+  margin-bottom: 5rem;
+  margin-top: 5rem;
+
+  padding: 0.5rem 0.5rem 2rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.wideannerOuter {
+  background-color: rgba(0, 0, 0, 0.739);
+  border-radius: 0.4rem;
+}
+
+.wideannerOuter h3 {
+  color: white;
+  padding: 1.5rem 0rem 1.5rem 0rem;
+}
+
+.wideannerOuter p {
+  color: white;
+  text-align: center;
+  padding: 0rem 0rem 1.5rem 0rem;
+}
+
+.wideannerOuter div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 0rem 1.5rem 0rem;
+}
+
+.wideannerOuter button {
+  padding: 0.7rem 1.5rem 0.7rem 1.5rem;
+  border: none;
+  border-radius: 0.3rem;
+  background-color: #042b57;
+  color: white;
+}
+
+.wideannerOuter button:hover {
+  transition: 0.5s;
+  background-color: #1863b9;
+}
+
+.wideannerOuter {
+  display: block;
+  transition: 15s;
+}
+
+@media screen and (min-width: 500px) {
+  .wideannerOuter {
+    display: none;
+    transition: 15s;
+  }
+
+  .subBanners:hover .wideannerOuter {
+    padding-top: 0%;
+    transition: 0.5s;
+    display: block;
+  }
+
+  .subBanners:hover {
+    padding-top: 0%;
+    transition: 0.5s;
+    display: block;
+  }
+}

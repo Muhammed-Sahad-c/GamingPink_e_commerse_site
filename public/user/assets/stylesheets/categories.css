@@ -1,0 +1,44 @@
+#categorySlider {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #categorySlider a {
+    padding: 0rem 1rem 0rem 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    align-items: center;
+    font-weight: bold;
+    color: #134c8e;
+    position: relative;
+  }
+  
+  #categorySlider a:hover {
+    color: #042b57;
+    text-decoration: underline;
+    font-size: 1.7rem;
+    transition: 0.4s;
+  }
+  
+  #categorySliderOuterBody {
+    background: rgb(255, 255, 255);
+    margin-bottom: 1rem;
+    padding: 1rem 0rem 1rem 0rem;
+    border-radius: 4px;
+  }
+  
+  #filters {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  #filters a:hover {
+    text-decoration: underline;
+  } 
+  
+  
+  
+  
+  

@@ -1,0 +1,63 @@
+ 
+
+ 
+
+{{!-- Login Form Start --}}
+<div class="body-content">
+    <div class="">
+        <div class="container">
+            <div class="sign-in-page">
+                <div class="row">
+                    <div class="loginouter">
+                        <div class="col-md-6 col-sm-6 col-xs-12 sign-in mx-0 " style="border-radius: 5px; box-shadow: 0px 1px 8px 8px #dedede">
+                            <div>
+                                <div class="loginbody">
+                                    <h4 class="">Signup</h4>
+                                    <form action="/user/SUsubmit" class="register-form outer-top-xs" method="post">
+                                        <!-- Username -->
+                                        <div class="form-group">
+                                            <label class="info-title" for="exampleInputEmail1">Username <span>*</span></label>
+                                            <input type="text" class="form-control unicase-form-control text-input" id="exampleInputEmail1" name="SUusername" required pattern="[A-Z a-z]{3,22}" placeholder="Cannot contain numbers.">
+                                        </div>
+                                        <!-- Email -->
+                                        <div class="form-group">
+                                            <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
+                                            <input type="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" name="SUemail" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Cannot contain Uppercase letters.">
+                                        </div>
+                                        <!-- Password -->
+                                        <div class="form-group">
+                                            <label class="info-title" for="exampleInputPassword1">Password <span>*</span></label>
+                                            <input type="password" class="form-control unicase-form-control text-input" id="exampleInputPassword1" name="SUpassword" required pattern=".{4,}" placeholder="Atleast 4 characters">
+                                        </div>
+                                        <!-- Re enter Password -->
+                                        <div class="form-group">
+                                            <label class="info-title" for="exampleInputPassword1">Confirm Password <span>*</span></label>
+                                            <input type="password" class="form-control unicase-form-control text-input" id="exampleInputPassword1" name="SUrepassword" required pattern=".{4,}" placeholder="Atleast 4 characters">
+                                        </div>
+                                        {{!-- Alert start --}}
+                                        {{#if passwordStatus }}
+                                        <p id="alert">Passwords are not matching! </p>
+                                        {{else if signupEmailStatus}}
+                                        <p id="alert">Email already registered! </p>
+                                        {{/if}}
+                                        {{!-- Alert End --}}
+
+                                        <button type="submit" class="btn-upper btn btn-primary checkout-page-button">submit</button>
+                                        <p class="text-center">already have an account? <a href="/login">login</a></p>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- Login Form End --}}
+
+
+
+
+
+ 

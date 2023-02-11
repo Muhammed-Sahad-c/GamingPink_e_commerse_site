@@ -1,0 +1,206 @@
+ 
+
+<style>
+    .orderStatuses {
+        border: none;
+        border-radius: 3px;
+        padding: 0.5rem 2rem 0.5rem 2rem;
+        background: #3e434e;
+        color: white;
+        margin: 2rem 2rem 0rem 2rem;
+    }
+
+    .orderStatuses:hover {
+        transition: 0.5s;
+        transform: scale(1.1);
+        background-color: #20242e;
+        padding: 0.7rem 3rem 0.7rem 3rem;
+    }
+
+    #statuses label {
+        padding: 0rem 1.5rem 0rem 1.5rem;
+    }
+
+    .disabledbtn {
+        background-color: #151617;
+        border: none;
+        border-radius: 3px;
+        padding: 0.5rem 2rem 0.5rem 2rem;
+
+        color: rgb(188, 188, 188);
+        margin: 2rem 2rem 0rem 2rem;
+    }
+
+    .disabledbtn:hover {
+        cursor: not-allowed;
+
+
+    }
+</style>
+
+
+<div>
+    {{!-- Products Start --}}
+    <div class="container-fluid pt-4 px-4">
+        <h5>PRODUCT DETAILS</h5>
+        <div class="bg-secondary text-center rounded p-4">
+            <div class="table-responsive">
+                <table class="table text-start align-middle table-bordered table-hover mb-0">
+                    <thead>
+                        <tr class="text-white">
+                            <th scope="col">No</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Offer Price</th>
+                            <th scope="col">Orj Price</th>
+                            <th scope="col">image</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{!-- Looping product details --}}
+                        {{#each orderDetails}}
+                        {{#each this.productDetails}}
+                        <tr>
+                            <td>{{@index}}</td>
+                            <td>{{this.FPname}}</td>
+                            <td>{{this.FPcategory}}</td>
+                            <td>{{this.FPsubcategory}}</td>
+                            <td>{{this.FPofferprice}}</td>
+                            <td>{{this.FPorjprice}}</td>
+                            <td>
+                                <img src="/admin/assets/images/offerproduct-images/{{productImages.[0]}}" alt="" width="50px">
+                            </td>
+                        </tr>
+                        {{/each}}
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {{!-- Products End --}}
+
+
+    {{!-- Billing Start --}}
+    <div class="container-fluid pt-4 px-4">
+        <h5>BILLING DETAILS</h5>
+        <div class="bg-secondary text-center rounded p-4">
+            <div class="table-responsive">
+                <table class="table text-start align-middle table-bordered table-hover mb-0">
+                    <thead>
+                        <tr class="text-white">
+                            <th scope="col">Payment Status</th>
+                            <th scope="col">Order id</th>
+                            <th scope="col">Items</th>
+                            <th scope="col">Coupon</th>
+                            <th scope="col">Total Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{!-- Looping product details --}}
+
+
+
+                        <tr>
+                            <td>{{orderDetails.[0].orderStatus}}</td>
+                            <td>{{orderDetails.[0]._id}}</td>
+                            <td>{{items}}</td>
+
+                            {{#if orderDetails.[0].couponStatus}}
+                            <td>₹{{orderDetails.[0].couponDiscount}}</td>
+                            <td class="text-success">₹ {{orderDetails.[0].finalDiscount}}</td>
+                            {{else}}
+                            <td>₹0</td>
+                            <td>₹ {{orderDetails.[0].grandTotal}}</td>
+                            {{/if}}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {{!-- Billing End --}}
+
+
+    {{!-- Billing Start --}}
+    <div class="container-fluid pt-4 px-4">
+        <h5>USER DETAILS</h5>
+        <div class="bg-secondary text-center rounded p-4">
+            <div class="table-responsive">
+                <table class="table text-start align-middle table-bordered table-hover mb-0">
+                    <thead>
+                        <tr class="text-white">
+                            <th scope="col">User Name</th>
+                            <th scope="col">User Id</th>
+                            <th scope="col">Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{!-- Looping product details --}}
+
+                        <tr>
+                            <td>{{orderDetails.[0].delivery_address.addressName}}</td>
+                            <td>{{orderDetails.[0].userId}}</td>
+                            <td>{{orderDetails.[0].delivery_address.Address}},{{orderDetails.[0].delivery_address.PIN}}, <br>{{orderDetails.[0].delivery_address.Street}}.{{orderDetails.[0].delivery_address.City}},{{orderDetails.[0].delivery_address.District}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {{!-- Billing End --}}
+</div>
+
+
+
+
+
+
+
+
+<div class="container-fluid pt-4 px-4 pb-4">
+    <h5>UPDATE STATUS</h5>
+    <div class="bg-secondary text-center rounded p-4">
+        {{!-- <button class="orderStatuses " onclick="updateOrderStatus('{{orderDetails.[0]._id}}')">Shipped</button>
+        <button class="orderStatuses " onclick="updateOrderStatus('sahad')">Out Of delivary</button>
+        <button class="orderStatuses " onclick="updateOrderStatus('sahad')">delivaried</button> --}}
+        <nav id="statuses">
+            {{#if outOfDelivery}}
+            <form action="/admin/updatestatus" method="post">
+                <input type="radio" id="deliveried" name="status" value="{{orderDetails.[0]._id}},Delivaried">
+                <label for="deliveried">Deliveried</label> <br>
+                <button class="orderStatuses text-uppercase" type="submit">Update</button>
+            </form>
+            {{else if shipped}}
+            <form action="/admin/updatestatus" method="post">
+                <input type="radio" id="outOfDelivery" name="status" value="{{orderDetails.[0]._id}},Outofdelivery">
+                <label for="outOfDelivery">OUt of delivery</label>
+                <input type="radio" id="deliveried" name="status" value="{{orderDetails.[0]._id}},Delivaried">
+                <label for="deliveried">Deliveried</label> <br>
+                <button class="orderStatuses text-uppercase" type="submit">Update</button>
+            </form>
+            {{else if deliveried}}
+            <form action="/admin/updatestatus" method="post">
+                <h5 class=" text-success">delivaried</h5>
+                <button class="  text-uppercase disabledbtn" disabled type="submit">Update</button>
+            </form>
+            {{else if cancelled}}
+            <form action="/admin/updatestatus" method="post">
+                <h5 class=" text-danger">cancelled</h5>
+            </form>
+            {{else}}
+            <form action="/admin/updatestatus" method="post">
+                <input type="radio" id="shipped" name="status" value="{{orderDetails.[0]._id}},Shipped">
+                <label for="shipped">Shipped</label>
+                <input type="radio" id="outOfDelivery" name="status" value="{{orderDetails.[0]._id}},Outofdelivery">
+                <label for="outOfDelivery">OUt of delivery</label>
+                <input type="radio" id="deliveried" name="status" value="{{orderDetails.[0]._id}},Deliveried">
+                <label for="deliveried">Deliveried</label> <br>
+                <button class="orderStatuses text-uppercase disabled">Update</button>
+            </form>
+            {{/if}}
+        </nav>
+    </div>
+</div>

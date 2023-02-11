@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+
+
+    {{!-- admin css --}}
+
+    <link rel="stylesheet" href="/admin/assets/stylesheets/adminStyle.css">
+    {{!-- Libraries --}}
+    <link rel="stylesheet" href="/admin/assets/javascripts/lib/owlcarousel/owl.carousel.min.js">
+    <link rel="stylesheet" href="/admin/assets/javascripts/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css">
+
+    {{!-- boostrap css --}}
+    <link rel="stylesheet" href="/admin/assets/stylesheets/Adminbootstrap.min.css">
+
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/admin/assets/javascriptslib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/admin/assets/javascriptslib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+
+
+
+
+</head>
+
+<body>
+    <div class="container-fluid position-relative d-flex p-0">
+        {{!-- Sidebar Start --}}
+        <div class="sidebar pe-4 pb-3">
+            <nav class="navbar bg-secondary navbar-dark" style="padding-top: 7rem;">
+
+                <div class="d-flex align-items-center ms-4 mb-4">
+                    <div class="position-relative">
+                        <img class="rounded-circle" src="/admin/assets/images/favicon.png" alt="" style="width: 40px; height: 40px;">
+                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
+                        </div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="mb-0" style="font-size: 1.2rem;">Muhammed sahad</h6>
+                        <span>Admin</span>
+                    </div>
+                </div>
+
+                {{#if productTab}}
+                <div class="navbar-nav w-100">
+                    <a href="/admin" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="/admin/users" class="nav-item nav-link"><i class="fa-solid fa-user me-2"></i>Users</a>
+                    <a href="/admin/products" class="nav-item nav-link active"><i class="fa-solid fa-box-open me-2"></i>Products</a>
+                    <a href="/admin/addproduct" class="nav-item nav-link"><i class="fa-solid fa-tags me-2"></i>Categorires</a>
+                    <a href="/admin/bannersmanagementpage" class="nav-item nav-link "><i class="fa-solid fa-images me-2"></i>Banners</a>
+                    <a href="/admin/coupon" class="nav-item nav-link"> <i class="fa-solid fa-ticket me-2"></i>Coupons</a>
+                    <a href="/admin/orders" class="nav-item nav-link"><i class="fa-solid fa-boxes-stacked me-2"></i>Orders</a>
+                    <a href="/admin/salesreport" class="nav-item nav-link"><i class="fa-solid fa-sack-dollar me-2"></i>Sales Report</a>
+                    <a href="/" class="nav-item nav-link"><i class="fa-solid fa-home me-2"></i>Home</a>
+                </div>
+                {{else if usersTab}}
+                <div class="navbar-nav w-100">
+                    <a href="/admin" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="/admin/users" class="nav-item nav-link active"><i class="fa-solid fa-user me-2"></i>Users</a>
+                    <a href="/admin/products" class="nav-item nav-link "><i class="fa-solid fa-box-open me-2"></i>Products</a>
+                    <a href="/admin/addproduct" class="nav-item nav-link"><i class="fa-solid fa-tags me-2"></i>Categorires</a>
+                    <a href="/admin/bannersmanagementpage" class="nav-item nav-link "><i class="fa-solid fa-images me-2"></i>Banners</a>
+                    <a href="/admin/coupon" class="nav-item nav-link"> <i class="fa-solid fa-ticket me-2"></i>Coupons</a>
+                    <a href="/admin/orders" class="nav-item nav-link"><i class="fa-solid fa-boxes-stacked me-2"></i>Orders</a>
+                    <a href="/admin/salesreport" class="nav-item nav-link"><i class="fa-solid fa-sack-dollar me-2"></i>Sales Report</a>
+                    <a href="/" class="nav-item nav-link"><i class="fa-solid fa-home me-2"></i>Home</a>
+                </div>
+                {{else if ordersTab}}
+                <div class="navbar-nav w-100">
+                    <a href="/admin" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="/admin/users" class="nav-item nav-link"><i class="fa-solid fa-user me-2"></i>Users</a>
+                    <a href="/admin/products" class="nav-item nav-link "><i class="fa-solid fa-box-open me-2"></i>Products</a>
+                    <a href="/admin/addproduct" class="nav-item nav-link"><i class="fa-solid fa-tags me-2"></i>Categorires</a>
+                    <a href="/admin/bannersmanagementpage" class="nav-item nav-link "><i class="fa-solid fa-images me-2"></i>Banners</a>
+                    <a href="/admin/coupon" class="nav-item nav-link"> <i class="fa-solid fa-ticket me-2"></i>Coupons</a>
+                    <a href="/admin/orders" class="nav-item nav-link active"><i class="fa-solid fa-boxes-stacked me-2"></i>Orders</a>
+                    <a href="/admin/salesreport" class="nav-item nav-link"><i class="fa-solid fa-sack-dollar me-2"></i>Sales Report</a>
+                    <a href="/" class="nav-item nav-link"><i class="fa-solid fa-home me-2"></i>Home</a>
+                </div>
+                {{else if categoriesTab}}
+                <div class="navbar-nav w-100">
+                    <a href="/admin" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="/admin/users" class="nav-item nav-link"><i class="fa-solid fa-user me-2"></i>Users</a>
+                    <a href="/admin/products" class="nav-item nav-link "><i class="fa-solid fa-box-open me-2"></i>Products</a>
+                    <a href="/admin/addproduct" class="nav-item nav-link active"><i class="fa-solid fa-tags me-2"></i>Categorires</a>
+                    <a href="/admin/bannersmanagementpage" class="nav-item nav-link "><i class="fa-solid fa-images me-2"></i>Banners</a>
+                    <a href="/admin/coupon" class="nav-item nav-link"> <i class="fa-solid fa-ticket me-2"></i>Coupons</a>
+                    <a href="/admin/orders" class="nav-item nav-link"><i class="fa-solid fa-boxes-stacked me-2"></i>Orders</a>
+                    <a href="/admin/salesreport" class="nav-item nav-link"><i class="fa-solid fa-sack-dollar me-2"></i>Sales Report</a>
+                    <a href="/" class="nav-item nav-link"><i class="fa-solid fa-home me-2"></i>Home</a>
+                </div>
+                {{else if conuponTab}}
+                <div class="navbar-nav w-100">
+                    <a href="/admin" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="/admin/users" class="nav-item nav-link"><i class="fa-solid fa-user me-2"></i>Users</a>
+                    <a href="/admin/products" class="nav-item nav-link "><i class="fa-solid fa-box-open me-2"></i>Products</a>
+                    <a href="/admin/addproduct" class="nav-item nav-link"><i class="fa-solid fa-tags me-2"></i>Categorires</a>
+                    <a href="/admin/bannersmanagementpage" class="nav-item nav-link "><i class="fa-solid fa-images me-2"></i>Banners</a>
+                    <a href="/admin/coupon" class="nav-item nav-link active"> <i class="fa-solid fa-ticket me-2"></i>Coupons</a>
+                    <a href="/admin/orders" class="nav-item nav-link"><i class="fa-solid fa-boxes-stacked me-2"></i>Orders</a>
+                    <a href="/admin/salesreport" class="nav-item nav-link"><i class="fa-solid fa-sack-dollar me-2"></i>Sales Report</a>
+                    <a href="/" class="nav-item nav-link"><i class="fa-solid fa-home me-2"></i>Home</a>
+                </div>
+                {{else if bannerTab}}
+                <div class="navbar-nav w-100">
+                    <a href="/admin" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="/admin/users" class="nav-item nav-link"><i class="fa-solid fa-user me-2"></i>Users</a>
+                    <a href="/admin/products" class="nav-item nav-link "><i class="fa-solid fa-box-open me-2"></i>Products</a>
+                    <a href="/admin/addproduct" class="nav-item nav-link"><i class="fa-solid fa-tags me-2"></i>Categorires</a>
+                    <a href="/admin/bannersmanagementpage" class="nav-item nav-link active"><i class="fa-solid fa-images me-2"></i>Banners</a>
+                    <a href="/admin/coupon" class="nav-item nav-link"> <i class="fa-solid fa-ticket me-2"></i>Coupons</a>
+                    <a href="/admin/orders" class="nav-item nav-link"><i class="fa-solid fa-boxes-stacked me-2"></i>Orders</a>
+                    <a href="/admin/salesreport" class="nav-item nav-link"><i class="fa-solid fa-sack-dollar me-2"></i>Sales Report</a>
+                    <a href="/" class="nav-item nav-link"><i class="fa-solid fa-home me-2"></i>Home</a>
+                </div>
+                {{else if salesTab}}
+                <div class="navbar-nav w-100">
+                    <a href="/admin" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="/admin/users" class="nav-item nav-link"><i class="fa-solid fa-user me-2"></i>Users</a>
+                    <a href="/admin/products" class="nav-item nav-link "><i class="fa-solid fa-box-open me-2"></i>Products</a>
+                    <a href="/admin/addproduct" class="nav-item nav-link"><i class="fa-solid fa-tags me-2"></i>Categorires</a>
+                    <a href="/admin/bannersmanagementpage" class="nav-item nav-link "><i class="fa-solid fa-images me-2"></i>Banners</a>
+                    <a href="/admin/coupon" class="nav-item nav-link"> <i class="fa-solid fa-ticket me-2"></i>Coupons</a>
+                    <a href="/admin/orders" class="nav-item nav-link"><i class="fa-solid fa-boxes-stacked me-2"></i>Orders</a>
+                    <a href="/admin/salesreport" class="nav-item nav-link active"><i class="fa-solid fa-sack-dollar me-2"></i>Sales Report</a>
+                    <a href="/" class="nav-item nav-link"><i class="fa-solid fa-home me-2"></i>Home</a>
+                </div>
+                {{else}}
+                <div class="navbar-nav w-100">
+                    <a href="/admin" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="/admin/users" class="nav-item nav-link"><i class="fa-solid fa-user me-2"></i>Users</a>
+                    <a href="/admin/products" class="nav-item nav-link "><i class="fa-solid fa-box-open me-2"></i>Products</a>
+                    <a href="/admin/addproduct" class="nav-item nav-link"><i class="fa-solid fa-tags me-2"></i>Categorires</a>
+                    <a href="/admin/bannersmanagementpage" class="nav-item nav-link "><i class="fa-solid fa-images me-2"></i>Banners</a>
+                    <a href="/admin/coupon" class="nav-item nav-link"> <i class="fa-solid fa-ticket me-2"></i>Coupons</a>
+                    <a href="/admin/orders" class="nav-item nav-link"><i class="fa-solid fa-boxes-stacked me-2"></i>Orders</a>
+                    <a href="/admin/salesreport" class="nav-item nav-link"><i class="fa-solid fa-sack-dollar me-2"></i>Sales Report</a>
+                    <a href="/" class="nav-item nav-link"><i class="fa-solid fa-home me-2"></i>Home</a>
+                </div>
+                {{/if}}
+
+            </nav>
+        </div>
+        {{!-- Sidebar End --}}
+
+        {{!-- Content start --}}
+        <div class="content">
+
+            {{!-- Nav bar start --}}
+            <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-3">
+                <a href="#" class="sidebar-toggler flex-shrink-0 ">
+                    <i class="fa fa-bars"></i>
+                </a>
+
+                {{!-- <div class="navbar-nav align-items-center ms-auto"> --}}
+
+                    {{!-- <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="/admin/assets/images/favicon.png" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">Sahad</span>
+                        </a> --}}
+                        {{!-- <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="#" class="dropdown-item">Log Out</a>
+                        </div> --}}
+                        {{!--
+                    </div> --}}
+                    {{!-- </div> --}}
+            </nav>
+            {{!--Nav bar End --}}
+
+            {{{body}}}
+
+        </div>
+        {{!-- content end --}}
+    </div>
+
+
+    {{!-- admin Scripts --}}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/admin/assets/javascripts/lib/chart/chart.min.js"></script>
+    <script src="/admin/assets/javascripts/lib/easing/easing.min.js"></script>
+    <script src="/admin/assets/javascripts/lib/waypoints/waypoints.min.js"></script>
+    <script src="/admin/assets/javascripts/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/admin/assets/javascripts/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="/admin/assets/javascripts/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="/admin/assets/javascripts/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    {{!-- Custom Script --}}
+    <script src="/admin/assets/javascripts/admin.js"></script>
+
+
+
+    <script src="/admin/assets/javascripts/adminAjax.js"></script>
+
+
+
+    <script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+    <style>
+        .swal2-container.swal2-center>.swal2-popup {
+            background-color: #191C24 !important;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('#test').DataTable();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+{{!-- order details for graph --}}
+<span id="pending" hidden>{{ordersDetailsGraph.pending}}</span>
+<span id="deliveried" hidden>{{ordersDetailsGraph.deliveried}}</span>
+<span id="cancelled" hidden>{{ordersDetailsGraph.cancelled}}</span>
+
+{{!-- order details for graph --}}
+
+<!-- Sale & Revenue Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        {{#if itemCounts}}
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa-solid fa-scale-balanced fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Total Sales</p>
+                    <h6 class="mb-0 mychange" id="sales">{{itemCounts.sales}}</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa-solid fa-scale-balanced fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Today Sales</p>
+                    <h6 class="mb-0" id="todaySales">{{itemCounts.todaySales}}</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa-solid fa-user fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Total users</p>
+                    <h6 class="mb-0">{{itemCounts.users}}</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa-solid fa-box-open fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Total Products</p>
+                    <h6 class="mb-0">{{itemCounts.products}}</h6>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>
+<!-- Sale & Revenue End -->
+
+
+
+<!-- Chart Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h6 class="mb-4">ORDERS</h6>
+                <canvas id="pie-chart"></canvas>
+            </div>
+        </div>
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h6 class="mb-4 text-uppercase">Sales</h6>
+                <canvas id="doughnut-chart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Chart End -->
+
+{{!-- <script src="/admin/assets/javascripts/dashboardManagement.js"></script> --}}
+
+
+
+ 

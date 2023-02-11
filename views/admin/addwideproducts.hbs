@@ -1,0 +1,53 @@
+{{!-- Products add form start--}}
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-secondary text-center rounded p-4">
+
+        <div class="row">
+            <div class="centerdiv pb-5">
+                <div class="col-lg-9 col-12">
+                    <div class="bg-secondary rounded h-100 p-4">
+
+                        <h6 class="mb-5">ADD PRODUCT</h6>
+
+                        {{!-- FORM START --}}
+                        <form action="/admin/addwideproduct" method="post" enctype="multipart/form-data">
+
+                            <!-- discription -->
+                            <div class="form-floating mb-3 text-left">
+                                <small class="text-white">Heading</small>
+                                <input type="text" class="form-control" id="floatingInput" name="WPheading">
+                            </div>
+
+                            <div class="form-floating mb-3 text-left">
+                                <small class="text-white">Discription</small>
+                                <input type="text" class="form-control" id="floatingInputs" name="WPdiscription">
+                            </div>
+
+                            <!-- Sub Catagory -->
+                            <div class="form-floating mb-3">
+                                <small class="text-white">category</small>
+                                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="WPcategory">
+                                {{#each categories}}
+                                    <option>{{this.categoryName}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+
+                            <!-- Main image -->
+                            <div class="mb-3 text-left" style="text-align: left;">
+                                <small class="text-white ">Main Image</small>
+                                <input class="form-control bg-dark" type="file" id="formFile" name="WPmainimage" multiple required>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="subbutton">Submit</button>
+
+                        </form>
+                        {{!-- Form END --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- Products add form END--}}

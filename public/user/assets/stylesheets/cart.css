@@ -1,0 +1,99 @@
+/* ================================================= CART CSS */
+
+#flexdiv a {
+    color: #042b57;
+  }
+  
+  #checkoutBTN {
+    background-color: #ff6518;
+    border: 1px solid #ff6518;
+    color: white;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 1.5rem;
+    width: 100%;
+    padding-bottom: 1.5rem;
+  }
+  
+  #checkoutBTN:hover {
+    background-color: #d15111;
+  }
+  
+  #cartnoting {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  #cartnoting div {
+    padding: 25rem;
+  }
+  
+  #cartnoting img {
+    width: 12rem;
+    opacity: 0.5;
+  }
+  
+  #cartnoting p {
+    padding-top: 1rem;
+    font-size: 2rem;
+    color: #9c9c9c;
+  }
+  
+  #flexdiv {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 2rem;
+    background-color: rgb(252, 252, 252);
+    border-radius: 5px;
+    width: 360px;
+    height: 120px;
+  }
+  
+  #prodDetails {
+    margin-left: 2rem;
+    margin-left: 2rem;
+    padding-right: 1rem;
+    width: 167.75px;
+  }
+  
+  #quantityOuterDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 2rem;
+    width: 360px;
+    border-bottom-left-radius: 5px;
+  }
+  
+  #addProductsToCart {
+    border: none;
+    background-color: rgb(43, 87, 189);
+    padding: 1rem;
+    padding-left: 6.5rem;
+    padding-right: 6.5rem;
+    color: white;
+    border-radius: 4px;
+    margin-top: 1.6rem;
+  }
+  
+  #emptyCart strong {
+    padding-bottom: 2rem;
+  }
+  
+  .changeQuantityBtn {
+    color: white;
+    border-radius: 3px;
+    background-color: #042a56;
+    border: 1px solid #042a56;
+    font-weight: bold;
+  }
+  
+  .removeBtn {
+    border: none;
+    background: inherit;
+  }
+  

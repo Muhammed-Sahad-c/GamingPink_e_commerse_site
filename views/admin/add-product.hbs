@@ -1,0 +1,77 @@
+{{!-- Products add form start--}}
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-secondary text-center rounded p-4">
+
+        <div class="row">
+            <div class="centerdiv pb-5">
+                <div class="col-lg-9 col-12">
+                    <div class="bg-secondary rounded h-100 p-4">
+
+                        <h6 class="mb-5">ADD PRODUCT</h6>
+
+                        {{!-- FORM START --}}
+                        <form action="/admin/addproduct" method="post" enctype="multipart/form-data">
+
+                            <!-- Product name -->
+                            <div class="form-floating mb-3 text-left">
+                                <small class="text-white">Product name</small>
+                                <input type="text" class="form-control" id="floatingInput" name="FPname" required>
+                            </div>
+
+                            <!-- discription -->
+                            <div class="form-floating mb-3 text-left">
+                                <small class="text-white">Discription</small>
+                                <input type="text" class="form-control" id="floatingInput" name="FPdiscription">
+                            </div>
+
+                            <!-- Catagory -->
+                            <div class="form-floating mb-3">
+                                <small class="text-white">Category</small>
+                                <input value="{{productCategoryName}}" class="form-control bg-dark categorydisabled" id="floatingInput" name="FPcategory" readonly="null">
+                            </div>
+
+                            <!-- Sub Catagory -->
+                            <div class="form-floating mb-3">
+                                <small class="text-white">Sub category</small>
+                                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="FPsubcategory">
+                                    {{#each this.subCategories}}
+                                    <option>{{this.subCategories}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+
+                            <!-- orj Price -->
+                            <div class="form-floating mb-3 text-left">
+                                <small class="text-white">Price</small>
+                                <input type="number" class="form-control" id="floatingInput" name="FPorjprice" required>
+                            </div>
+
+                            <!-- Offer Price -->
+                            <div class="form-floating mb-3 text-left">
+                                <small class="text-white">Offer Price</small>
+                                <input type="number" class="form-control" id="floatingInput" name="FPofferprice" required>
+                            </div>
+
+                            <div class="form-floating mb-3 text-left">
+                                <small class="text-white">Stock </small>
+                                <input type="number" class="form-control" id="floatingInput" name="FPStock" required>
+                            </div>
+
+                            <!-- Main image -->
+                            <div class="mb-3 text-left" style="text-align: left;">
+                                <small class="text-white ">Main Image</small>
+                                <input class="form-control bg-dark" type="file" id="formFile" name="FPmainimage" multiple required>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="subbutton">Submit</button>
+
+                        </form>
+                        {{!-- Form END --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- Products add form END--}}

@@ -1,0 +1,61 @@
+
+
+{{!-- Login Form Start --}}
+<div class="body-content">
+    <div class="">
+        <div class="container">
+            <div class="sign-in-page">
+                <div class="row">
+                    <div class="loginouter">
+                        <div class="col-md-6 col-sm-6 col-xs-12 sign-in mx-0 " style="border-radius: 5px; box-shadow: 0px 1px 8px 8px #dedede">
+                            <div>
+                                <div class="loginbody">
+                                    <h4 class="">Login</h4>
+                                    <form action="/user/Logindata" class="register-form outer-top-xs" role="form" method="post">
+                                        <div class="form-group">
+                                            <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
+                                            <input type="email"   class="form-control unicase-form-control text-input" id="exampleInputEmail1" name="loginMail"  >
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="info-title" for="exampleInputPassword1">Password <span>*</span></label>
+                                            <input type="password" class="form-control unicase-form-control text-input" id="exampleInputPassword1" name="loginPassword">
+                                        </div>
+                                        {{!-- Alert start --}}
+                                        {{#if passwordStatus}}
+                                        <div class="alert alert-primary text-center" role="alert" style="color:rgb(255, 0, 0) ;">
+                                            Incurrect password!
+                                        </div>
+                                        <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Login</button>
+                                        <p class="text-center">don't have an account? <a href="/signup">Signup</a></p>
+                                        {{else if loginEmailStatus}}
+                                        <div class="alert alert-primary text-center" role="alert" style="color:rgb(255, 0, 0) ;">
+                                            Email not found!
+                                        </div>
+                                        <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Login</button>
+                                        <p class="text-center">don't have an account? <a href="/signup">Signup</a></p>
+                                        {{else if blockStatus}}
+                                        <div class="alert alert-primary text-center" role="alert" style="color:rgb(255, 0, 0) ;">
+                                            you are blocked by Admin
+                                        </div>
+                                        {{!-- Alert End --}}
+                                        {{else}}
+                                        <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Login</button>
+                                        <p class="text-center">don't have an account? <a href="/signup">Signup</a></p>
+                                        {{/if}}
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- Login Form End --}}
+
+
+
+
+
+

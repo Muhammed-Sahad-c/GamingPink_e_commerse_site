@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+
+    {{!-- USER STYLESHEETS --}}
+
+    <link rel="stylesheet" href="/user/assets/stylesheets/style.css">
+
+    {{!-- Template Style sheets --}}
+    <link rel="stylesheet" href="/user/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/user/assets/stylesheets/animate.min.css">
+    <link rel="stylesheet" href="/user/assetsstylesheets/blue.css">
+    <link rel="stylesheet" href="/user/assets/stylesheets/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/user/assets/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/user/assets/stylesheets/font-awesome.css">
+    <link rel="stylesheet" href="/user/assets/stylesheets/lightbox.css">
+    <link rel="stylesheet" href="/user/assets/stylesheets/owl.carousel.css">
+    <link rel="stylesheet" href="/user/assets/stylesheets/owl.transitions.css">
+    <link rel="stylesheet" href="/user/assets/stylesheets/rateit.css">
+
+    {{!-- Google fonts --}}
+    <link href="https://fonts.googleapis.com/css?family=Barlow:200,300,300i,400,400i,500,500i,600,700,800" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="shortcut icon" href="/user/assets/images/logo.png" type="image/x-icon">
+</head>
+
+<body onload="disableTest();">
+
+    {{!-- Header start --}}
+    <header class="header-style-1">
+
+        <div class="main-header" style="background-color: #042b57;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 top-search-holder">
+                        <div class="logo "> <a href="/">
+                                <h1 class="logotxt">Gaming Pink</h1>
+                            </a> </div>
+                    </div>
+
+                    {{!-- Profile logout --}}
+                    <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12 top-search-holder pt-5 " id="logindiv" style="margin-top: 1rem;">
+                        {{#if name}}
+                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                            <a href="/profile"> <button type="button" class="btn btn-secondary" style="margin-right:0.5rem ;" id="loginsignupbtn">PROFILE</button>
+                            </a>
+                            <a href="/logout"> <button type="button" class="btn btn-secondary" style="margin-right:0.5rem ;" id="loginsignupbtn">lOGOUT</button>
+                            </a>
+                        </div>
+                        {{else}}
+                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                            <a href="/login"> <button type="button" class="btn btn-secondary" style="margin-right:0.5rem ;" id="loginsignupbtn">LOGIN</button>
+                            </a>
+                            <a href="/signup"> <button type="button" class="btn btn-secondary" style="margin-right:0.5rem ;" id="loginsignupbtn">SIGNUP</button>
+                            </a>
+                        </div>
+                        {{/if}}
+                    </div>
+                    {{!-- SearchArea End --}}
+
+                </div>
+            </div>
+        </div>
+
+        {{!-- NAVBAR Start --}}
+        <div class="header-nav animate-dropdown" style="background-color: #042b57;">
+            <div class="container">
+                <div class="yamm navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <button data-target="#mc-horizontal-menu-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                            <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    </div>
+                    <div class="nav-bg-class">
+                        <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
+                            <div class="nav-outer">
+                                <ul class="nav navbar-nav">
+
+                                    <li class="active dropdown"> <a href="/">Home</a> </li>
+                                    <li class="hidden-sm"> <a href="/aboutUS">About</a> </li>
+                                </ul>
+                            </div>
+                            {{#if wishlistTab}}
+                            <div class="optionsforuser">
+                                <a href="/cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i><span class="badge " style="background-color: red;" id="cart-count">{{cartCount}}</span></a>
+                                <a href="/myorders" title="Orders"><i class="fa-solid fa-box"></i><span class="badge" style="background-color: red;">{{ordersCount}}</span></a>
+                                <a href="/wishlist" title="Wishlist"><i class="fa-solid fa-heart" style="color: #cca711;"></i></a>
+                                <a href="/compare" title="Compare Products"> <i class="fa-solid fa-signal"></i></a>
+                            </div>
+                            {{else if ordersTab}}
+                            <div class="optionsforuser">
+                                <a href="/cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i><span class="badge " style="background-color: red;" id="cart-count">{{cartCount}}</span></a>
+                                <a href="/myorders" title="Orders"><i class="fa-solid fa-box" style="color: #cca711;"></i><span class="badge" style="background-color: red;">{{ordersCount}}</span></a>
+                                <a href="/wishlist" title="Wishlist"><i class="fa-solid fa-heart"><span class="badge" style="background-color: red;" id="wish-list-count">{{wishlistCount}}</span></i></a>
+                                <a href="/compare" title="Compare Products"> <i class="fa-solid fa-signal"></i></a>
+                            </div>
+                            {{else if cartTab}}
+                            <div class="optionsforuser">
+                                <a href="/cart" title="Cart"><i class="fa-solid fa-cart-shopping" style="color: #cca711;"></i><span class="badge " style="background-color: red;" id="cart-count">{{cartCount}}</span></a>
+                                <a href="/myorders" title="Orders"><i class="fa-solid fa-box"></i><span class="badge" style="background-color: red;">{{ordersCount}}</span></a>
+                                <a href="/wishlist" title="Wishlist"><i class="fa-solid fa-heart"><span class="badge" style="background-color: red;" id="wish-list-count">{{wishlistCount}}</span></i></a>
+                                <a href="/compare" title="Compare Products"> <i class="fa-solid fa-signal"></i></a>
+                            </div>
+                            {{else}}
+                            <div class="optionsforuser">
+                                <a href="/cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i><span class="badge " style="background-color: red;" id="cart-count">{{cartCount}}</span></a>
+                                <a href="/myorders" title="Orders"><i class="fa-solid fa-box"></i><span class="badge" style="background-color: red;">{{ordersCount}}</span></a>
+                                <a href="/wishlist" title="Wishlist"><i class="fa-solid fa-heart"><span class="badge" style="background-color: red;" id="wish-list-count">{{wishlistCount}}</span></i></a>
+                                <a href="/compare" title="Compare Products"> <i class="fa-solid fa-signal"></i></a>
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{!-- NAVBAR End --}}
+
+    </header>
+    {{!-- Header End --}}
+
+    {{{body}}}
+
+    {{!-- Footer start --}}
+    <footer id="footer" class="footer color-bg">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+
+                    {{!-- contact --}}
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="address-block">
+
+                            <!-- /.module-heading -->
+
+                            <div class="module-body">
+                                <ul class="toggle-footer" style="">
+                                    <li class="media">
+                                        <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-mobile fa-stack-1x fa-inverse"></i> </span> </div>
+                                        <div class="media-body">
+                                            <p>+7034938053</p>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-envelope fa-stack-1x fa-inverse"></i> </span> </div>
+                                        <div class="media-body"> <span><a href="#">GamingPink@gmail.com</a></span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /.module-body -->
+                    </div>
+
+                    {{!-- customer services --}}
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="module-heading">
+                            <h4 class="module-title">Customer Service</h4>
+                        </div>
+                        <!-- /.module-heading -->
+
+                        <div class="module-body">
+                            <ul class='list-unstyled'>
+                                <li class="first"><a href="#" title="Contact us">My Account</a></li>
+                                <li><a href="#" title="About us">Orders</a></li>
+                                <li><a href="#" title="faq">FAQ</a></li>
+                                <li><a href="#" title="Popular Searches">Cart</a></li>
+                                <li class="last"><a href="#" title="Where is my order?">Wishlist</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.module-body -->
+                    </div>
+
+                    {{!-- about us --}}
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="module-heading">
+                            <h4 class="module-title">Why Choose US</h4>
+                        </div>
+
+                        <div class="module-body">
+                            <ul class='list-unstyled'>
+                                <li class="first"><a title="Your Account" href="#">About us</a></li>
+                                <li><a title="Addresses" href="#">Contact Us</a></li>
+                                <li><a title="Information" href="#">Terms and conditions</a></li>
+                                <li class="first"><a href="#" title="About us">Checkout</a></li>
+                                <li><a href="#" title="Blog">Blog</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    {{!-- Social media --}}
+                    <div class="col-xs-12 col-sm-6 col-md-3 no-padding social">
+                        <ul class="link">
+                            <li class="fb pull-left"><a target="_blank" rel="nofollow" href="#" title="Facebook"></a>
+                            </li>
+                            <li class="tw pull-left"><a target="_blank" rel="nofollow" href="#" title="Twitter"></a>
+                            </li>
+                            <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="#" title="GooglePlus"></a>
+                            </li>
+                            <li class="rss pull-left"><a target="_blank" rel="nofollow" href="#" title="RSS"></a></li>
+                            <li class="pintrest pull-left"><a target="_blank" rel="nofollow" href="#" title="PInterest"></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    {{!-- Footer End --}}
+
+
+    <style>
+        .table>:not(:last-child)>:last-child>* {
+            border-bottom-color: black;
+        }
+
+        #footer {
+            pointer-events: none;
+        }
+    </style>
+
+    {{!-- Template script files --}}
+    <script src="/user/assets/javascripts/jquery-1.11.1.min.js"></script>
+    <script src="/user/assets/javascripts/bootstrap.min.js"></script>
+    <script src="/user/assets/javascripts/bootstrap-hover-dropdown.min.js"></script>
+    <script src="/user/assets/javascripts/owl.carousel.min.js"></script>
+    <script src="/user/assets/javascripts/echo.min.js"></script>
+    <script src="/user/assets/javascripts/jquery.easing-1.3.min.js"></script>
+    <script src="/user/assets/javascripts/bootstrap-slider.min.js"></script>
+    <script src="/user/assets/javascripts/jquery.rateit.min.js"></script>
+    <script src="/user/assets/javascripts/lightbox.min.js"></script>
+    <script src="/user/assets/javascripts/bootstrap-select.min.js"></script>
+    <script src="/user/assets/javascripts/wow.min.js"></script>
+    <script src="/user/assets/javascripts/scripts.js"></script>
+
+    <script src="/user/assets/javascripts/cart.js"></script>
+
+
+
+</body>
+
+
+</html>

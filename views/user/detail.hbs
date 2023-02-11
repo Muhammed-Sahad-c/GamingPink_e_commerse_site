@@ -1,0 +1,218 @@
+<div class="body-content outer-top-xs" id="test">
+    <div class="container">
+        <div class='row single-product'>
+            {{!-- Product images large devices--}}
+            <div class="col-xs-12 col-sm-12 col-md-8 homebanner-holder" id="largedeviceimgcarosal">
+                <div id="hero">
+                    <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
+                        {{!-- here is the image loopg --}}
+                        {{#each product}}
+                        {{#each this.productImages}}
+                        <div class="item" style="background-image:url(/admin/assets/images/offerproduct-images/{{this}} ); background-size: contain; border-radius: 12px; background-repeat: no-repeat;">
+                            <div class="container-fluid">
+                                <div class="caption bg-color vertical-center text-left">
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                        {{/each}}
+                    </div>
+                </div>
+
+
+            </div>
+            {{!-- Product images small devices--}}
+            <div class="sidebar-widget hot-deals outer-bottom-xs" id="smalldeviceimg">
+                <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-ss">
+                    {{#each product}}
+                    {{#each this.productImages}}
+                    <div class="item">
+                        <div class="products">
+                            <div class="hot-deal-wrapper">
+                                <div class="image" style="height:38rem;">
+                                    <a style="height:38rem;">
+                                        <img src="/admin/assets/images/offerproduct-images/{{this}}" alt="">
+                                        <img src="/admin/assets/images/product-images/{{this}}" alt="" class="hover-image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                    {{/each}}
+                </div>
+            </div>
+
+            {{!-- Product details --}}
+            <div class="col-xs-12 col-sm-12 col-md-4 sidebar" id="test">
+                <div class="side-menu animate-dropdown outer-bottom-xs">
+                    <nav class="yamm megamenu-horizontal">
+                        {{#each product}}
+                        <ul class="nav" style="padding-left: 2rem; padding-right: 2rem;">
+                            <li>
+                                <nav id="buttonsnav">
+                                    <button onclick="addToWishList('{{this._id}}')" class="wisthlist_compare_buttons">
+                                        <i class="fa-regular fa-heart  userbtns" style="font-size: 1.5em;"></i>
+                                    </button>
+                                    <a href="/addtocompare/{{this._id}}">
+                                        <button class="wisthlist_compare_buttons">
+                                            <i class="fa-solid fa-signal  userbtns" style="font-size: 1.5em;"></i>
+                                        </button>
+                                    </a>
+
+                                </nav>
+                            </li>
+                            <li class=" detailslist">
+                                <H4 style="font-weight: bold;">{{this.FPname}}</H4>
+                            </li>
+                            {{#if outOfStock}}
+                            <li>
+                                <p style="color: red;">Out Of Stock</p>
+                            </li>
+                            {{else}}
+                            <li>
+                                <p style="color: rgb(24, 202, 30);">In stock</p>
+                            </li>
+                            {{/if}}
+                            <li class=" detailslist">
+                                <i class="fa-solid fa-star ratingclr"></i>
+                                <i class="fa-solid fa-star ratingclr"></i>
+                                <i class="fa-solid fa-star ratingclr"></i>
+                                <i class="fa-solid fa-star ratingclr"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </li>
+                            <li class="dropdown menu-item detailslist">
+                                <strong>{{this.FPdiscription}}</strong>
+                            </li>
+                            <li>
+                                <span id="orjinalprice"><span style="text-primary">₹</span>{{this.FPofferprice}}</span>
+                                <span id="strikedprice"> ₹{{this.FPorjprice}}</span>
+                            </li>
+                            <li>
+                                {{#if outOfStock}}
+                                <div id="buttonouterDiv">
+                                    <button class="btn text-uppercase" style="background-color: red; " id="BUY" disabled>Out Of Stock</button>
+
+                                </div>
+                                {{else}}
+                                <div id="buttonouterDiv">
+                                    <button class="btn text-uppercase" id="BUY" onclick="addToCart('{{this._id}}')">Add to Cart</button>
+                                </div>
+                                {{/if}}
+                            </li>
+                        </ul>
+                        {{/each}}
+                    </nav>
+                </div>
+            </div>
+            {{!-- Product details --}}
+        </div>
+    </div>
+</div>
+
+
+
+
+{{!-- RElated Products --}}
+<div class="body-content outer-top-vs bg-white" id="top-banner-and-menu">
+    <div class="container">
+        <div class="row">
+            <div class="myClass">
+                <div class="col-xs-12 col-sm-12 col-md-12 homebanner-holder">
+                    <div id="product-tabs-slider" class="scroll-tabs outer-top-vs">
+                        <div class="more-info-tab clearfix ">
+                            <h3 class="new-product-title pull-left">Related Products</h3>
+                        </div>
+                        <!-- new prodcuts Outer body -->
+                        <div class="tab-content outer-top-xs">
+                            <div class="tab-pane in active" id="all">
+                                <div class="product-slider">
+                                    <div class="owl-carousel home-owl-carousel custom-carousel owl-theme">
+                                        <!-- New product home owl carosal-->
+                                        {{#each relatedProducts}}
+                                        <div class="item item-carousel">
+                                            <div class="products">
+                                                <div class="product">
+                                                    <div class="product-image">
+                                                        <div class="image">
+                                                            <a href="/detail/{{this._id}}" target="_blank" style="height: 37rem;">
+                                                                <div>
+                                                                    <img src="/admin/assets/images/offerproduct-images/{{productImages.[0]}}" alt="" style="width: 20rem;">
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-info text-left" style="">
+                                                        <h3 class="name"><a href="/detail/{{this._id}}">{{this.FPname}}</a></h3>
+                                                        <div class="rating rateit-small">
+                                                            <i class="fa-solid fa-star ratingclr"></i>
+                                                            <i class="fa-solid fa-star ratingclr"></i>
+                                                            <i class="fa-solid fa-star ratingclr"></i>
+                                                            <i class="fa-solid fa-star ratingclr"></i>
+                                                            <i class="fa-regular fa-star"></i>
+                                                        </div>
+                                                        <div class="product-price"> <span class="price " style="color: rgb(40, 207, 63);">₹{{this.FPofferprice}}</span> <span class="price-before-discount">₹{{this.FPorjprice}}</span> </div>
+                                                    </div>
+                                                    <!--Cart , compare , wishlist start-->
+                                                    <div class="cart clearfix animate-effect">
+                                                        <div class="action">
+                                                            {{#if this.outOfStock}}
+                                                            <ul class="list-unstyled">
+                                                                <li class="add-cart-button btn-group" style="display: none;">
+                                                                    <button data-toggle="tooltip" class="btn btn-primary icon" type="button" title="Add Cart" onclick="addToCart('{{this._id}}')"> <i class="fa fa-shopping-cart"></i> </button>
+                                                                    <button class="btn btn-primary cart-btn" type="">Add to cart</button>
+                                                                    {{!-- </a> --}}
+                                                                </li>
+                                                                <li class="add-cart-button btn-group">
+                                                                    <button data-toggle="tooltip" class="btn btn-primary icon" style="background-color:#1370da; color: white;" type="button" title="Add to Wishlist" onclick="addToWishList('{{this._id}}')"> <i class="fa fa-heart text-primary" style="color: white;"></i> </button>
+                                                                    <button class="btn btn-primary cart-btn" type="button">Add to wishlist</button>
+                                                                </li>
+                                                                <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="/addtocompare/{{this._id}}" title="Compare"> <i class="fa fa-signal"></i> </a> </li>
+                                                            </ul>
+                                                            {{else}}
+                                                            <ul class="list-unstyled">
+                                                                <li class="add-cart-button btn-group">
+                                                                    <button data-toggle="tooltip" class="btn btn-primary icon" type="button" title="Add Cart" onclick="addToCart('{{this._id}}')"> <i class="fa fa-shopping-cart"></i> </button>
+                                                                    <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                                                    {{!-- </a> --}}
+                                                                </li>
+                                                                <li class="add-cart-button btn-group">
+                                                                    <button data-toggle="tooltip" class="btn btn-primary icon" style="background-color:#1370da; color: white;" type="button" title="Add to Wishlist" onclick="addToWishList('{{this._id}}')"> <i class="fa fa-heart text-primary" style="color: white;"></i> </button>
+                                                                    <button class="btn btn-primary cart-btn" type="button">Add to wishlist</button>
+                                                                </li>
+                                                                <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="/addtocompare/{{this._id}}" title="Compare"> <i class="fa fa-signal"></i> </a> </li>
+                                                            </ul>
+                                                            {{/if}}
+                                                        </div>
+                                                    </div>
+                                                    <!--Cart , compare , wishlist End-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{/each}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- new prodcuts Outer body -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- RElated Products --}}
+
+
+
+<style>
+    .wisthlist_compare_buttons {
+        background-color: white;
+        padding-top: 1rem;
+        border: none;
+    }
+
+    #BUY:hover {
+        cursor: not-allowed;
+    }
+</style>

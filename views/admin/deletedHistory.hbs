@@ -1,0 +1,47 @@
+{{!-- Spinner Start --}}
+<div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+{{!-- Spinner End --}}
+
+
+
+
+ 
+
+    {{!-- Users Start --}}
+    <div class="container-fluid pt-4 px-4">
+        <div class="bg-secondary text-center rounded p-4">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h6 class="mb-0 text-uppercase">Deleted History</h6>
+            </div>
+            <div class="table-responsive">
+                <table class="table text-start align-middle table-bordered table-hover mb-0" id="test">
+                    <thead>
+                        <tr class="text-white">
+                            <th scope="col">No</th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Catagory</th>
+                            <th scope="col">Date deleted</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{!-- Looping product details --}}
+                        {{#each details}}
+                        <tr>
+                            <td>{{inc @index}}</td>
+                            <td>{{this.prdctName}}</td>
+                            <td>{{this.prdctCategory}}</td>
+                            <td>{{this.deletedDate}} <br>
+                                {{this.deletedTime}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {{!-- Users End --}}
+ 

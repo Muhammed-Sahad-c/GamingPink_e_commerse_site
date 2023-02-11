@@ -1,0 +1,54 @@
+<style>
+.printBTN{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border-radius: 5px;
+}
+.printBTN:hover{
+    color: rgba(255, 0, 0, 0.733);
+    transition: .5s;
+}
+.printBTN i{
+    padding-right: 1rem;
+}
+</style>
+
+
+
+
+<!-- Sales Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-secondary text-center rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h6 class="mb-0 text-uppercase">Sales report</h6>
+            <button class=" px-3 py-2 printBTN " onclick="printReport('printSalesReport')"><i class="fa-solid fa-print "></i>print report</button>
+        </div>
+        <div class="table-responsive" id="printSalesReport">
+            <table class="table text-start align-middle table-bordered table-hover mb-0" id="test">
+                <thead>
+                    <tr class="text-white">
+                        <th scope="col">No</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Customer</th>
+                        <th scope="col">Items</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Payment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each salesReport}}
+                    <tr>
+                        <td>{{inc @index}}</td>
+                        <td>{{this.Date}}</td>
+                        <td>{{this.user.SUusername}}</td>
+                        <td>{{this.products.quantity}}</td>
+                        <td>₹{{this.productsTotalPrice}}</td>
+                        <td>{{this.paymentMethod}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- Sales End -->

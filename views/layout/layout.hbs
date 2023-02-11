@@ -1,0 +1,15 @@
+{{#if Clint}}
+{{>user-header}}
+{{else if clintNav}}
+{{>user-navOnly}}
+{{else if adminLogin}}
+{{>adminLogin}}
+{{else if admin}}
+{{>admin-header}}
+{{else}}
+{{>404}}
+{{/if}} 
+ 
+
+
+ <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> 

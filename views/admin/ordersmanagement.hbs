@@ -1,0 +1,81 @@
+
+
+
+<!-- Sale & Revenue Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        {{!-- {{#if counts}} --}}
+        <div class="col-sm-6 col-xl-4">
+            <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa-solid fa-cart-shopping fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Total Orders</p>
+                    <h6 class="mb-0 mychange">{{ordersCount.totalOrders}}</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-4">
+            <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa-solid fa-clock fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Pending</p>
+                    <h6 class="mb-0">{{ordersCount.pending}}</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-4">
+            <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa-solid fa-clipboard-check fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Deliveried</p>
+                    <h6 class="mb-0">{{ordersCount.deliveried}}</h6>
+                </div>
+            </div>
+        </div>
+        {{!-- {{/if}} --}}
+    </div>
+</div>
+<!-- Sale & Revenue End -->
+
+
+
+
+{{!-- Users Start --}}
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-secondary text-center rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h6 class="mb-0">ORDERS</h6>
+        </div>
+        <div class="table-responsive">
+            <table class="table text-start align-middle table-bordered table-hover mb-0" id="test">
+                <thead>
+                    <tr class="text-white border-black">
+                        <th scope="col">No</th>
+                        <th scope="col">Orders Id</th>
+                        <th scope="col">Total Items</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">status</th>
+                        <th scope="col">Payment Method</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each orders}}
+                    <tr>
+                        <td>{{inc @index}}</td>
+                        <td>{{this._id}}</td>
+                        <td>{{this.totalItems}}</td>
+                        <td>{{this.Date}}</td>
+                        <td>{{this.orderStatus}}</td>
+                        <td>{{paymentMethod}}</td>
+                        <td>
+                            <a href="/admin/ordersoverview/{{this._id}},{{this.userId}}" class=""><button id="remove"></i>View</button></a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{{!-- Users End --}}
