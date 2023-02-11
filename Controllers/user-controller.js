@@ -6,7 +6,7 @@ const ordersHelper = require('../Model/order-helpers');
 const couponHelpers = require("../Model/coupon-helpers");
 const { ObjectID, Db } = require("mongodb");
 const bannerHelpers = require("../Model/banner-Helpers");
-const wishlistHelper = require("../Model/wishlist-Helpers");
+const wishlistHelper = require("../Model/wishlist-helpers");
 const compareProductHelper = require("../Model/compare-helpers");
 
 
