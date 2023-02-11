@@ -10,7 +10,7 @@ const state = {
 
 // connecting......
 module.exports.connect = function (done) {
-    const url = "mongodb://127.0.0.1:27017/";
+    const url = "mongodb+srv://sahad:sahad1234e@cluster0.adojvlk.mongodb.net/test";
     const dbname = 'GamingPink';
 
     mongoClient.connect(url, (err, data) => {
