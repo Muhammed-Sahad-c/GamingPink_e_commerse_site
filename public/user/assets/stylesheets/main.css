@@ -6512,7 +6512,7 @@ input:focus {
 
 .shopping-cart {
   background-color: #fff;
-  padding: 20px;
+  /* padding: 20px; */
   overflow: hidden;
   border-radius: 5px;
 }

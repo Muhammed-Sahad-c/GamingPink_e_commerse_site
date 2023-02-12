@@ -1,4 +1,14 @@
+<style>
+    .addaddress {
+        color: white;
+        background: #0f325a;
+        padding: 0.4rem 2rem 0.4rem 2rem;
+        border-radius: 4px;
+        border: none;
+    }
+</style>
 <script src="https://www.paypal.com/sdk/js?client-id=AV_g7GJYo1P-7OeZLpf9WIAHGpLn_7LQqOOOdOioBzpWD95LXeHz_NGOLXgL-MAZRee6090OtNgMZemh&currency=USD&disable-funding=credit,card"></script>
+
 
 <link rel="stylesheet" href="/user/assets/stylesheets/checkout.css">
 
@@ -37,18 +47,18 @@
                                                         {{/each}}
                                                     </form>
                                                 </div>
-                                                <button onclick="addNewAddress()">Add new address</button>
+                                                <button onclick="addNewAddress()" class="addaddress" >Add new address</button>
                                                 {{else}}
-                                                <button onclick="addNewAddress()">Add new address</button>
+                                                <button onclick="addNewAddress()" class="addaddress">Add new address</button>
                                                 {{/if}}
                                             </div>
 
                                         </div>
 
                                         <!-- Address selection page End -->
-                                        <div class="col-md-6 col-sm-6 guest-login">
+                                        <div class="col-md-6 col-sm-12 guest-login" style=" padding: 0;">
                                             <div id="addressBody">
-                                                <div class="shopping-cart" style="display: flex; justify-content:flex-end; align-items: center; width:100%;">
+                                                <div class="shopping-cart" style="display: flex; justify-content:center; align-items: center; width:100%;">
                                                     <div class="col-md-12 col-sm-12  cart-shopping-total" style="background-color: white;">
                                                         <table class="table" style="background-color: white;">
                                                             <thead>
@@ -72,7 +82,7 @@
                                                                         <button onclick="removeCoupon('{{priceDetails.couponCode}},{{createdOrderId}}')" id="couponRemove">Remove</button>
                                                                         {{else}}
                                                                         <div style="padding-top: 2rem;">
-                                                                            <button style="width: 100%; padding: 1rem;" id="cpnaplybtn" onclick="applayCoupon('{{name._id}}')"><i class="fa-solid fa-ticket"></i> Apply Coupon</button>
+                                                                            <button  id="cpnaplybtn" onclick="applayCoupon('{{name._id}}')" class="addaddress"><i class="fa-solid  fa-ticket"></i> Apply Coupon</button>
                                                                             <div id="couponStatusDiv">
 
                                                                             </div>
@@ -94,16 +104,16 @@
                                                                                 <label for="cod" class="text-uppercase">Cash On Delivery</label><br>
                                                                                 <h4 style="font-weight:bold;" class="text-uppercase">Selected Address</h4>
                                                                                 <input type="text" id="test" value="selecte any address" disabled>
-                                                                                <button type="submit" id="checkoutBTN" class="btn btn-primary checkout-btn">PROCCED TO CHEKOUT</button>
+                                                                                <button type="submit" id="checkoutBTN" class="btn btn-primary checkout-btn addaddress " style="width: 100%; padding: 1rem;">PROCCED TO CHEKOUT</button>
                                                                             </form>
                                                                         </div>
                                                                     </td>
                                                                 </tr>
                                                                 <tr style="">
                                                                     <td>
-                                                                        <div class="cart-checkout-btn  text-start">
-                                                                            <h4><span id="orderid" hidden>{{createdOrderId}}</span></h4>
-                                                                            <h4><span id="userid" hidden>{{name}}</span></h4>
+                                                                        <div class="cart-checkout-btn hidden  text-start">
+                                                                            <h4><span id="orderid" >{{createdOrderId}}</span></h4>
+                                                                            <h4><span id="userid" >{{name}}</span></h4>
 
                                                                         </div>
                                                                     </td>
