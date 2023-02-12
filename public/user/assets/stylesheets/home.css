@@ -51,6 +51,7 @@
 .wideannerOuter {
   display: block;
   transition: 15s;
+  padding: 3rem 0rem 3rem 0rem;
 }
 
 @media screen and (min-width: 500px) {
