@@ -12,21 +12,40 @@
 <body>
      <div id="errorpageouter">
         <div>
-             <img src="/user/assets/images/4040.png" alt="">
+            <h1>404</h1>
+
+            <a href="/">go back to home</a>
+             {{!-- <img src="/user/assets/images/4040.png" alt="">
              <a href="/">
                 <button>
                     go to home
                 </button>
-             </a>
+             </a> --}}
         </div>
      </div>
 </body>
 </html>
 
-
+ 
 <style>
+ 
+  @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+ 
+
+    h1{
+        font-size: 3rem;
+        padding-bottom: 1rem;
+        font-family: 'Michroma', sans-serif;
+    }
     *{
+        text-align: center;
         margin: 0%;
+    }
+    a{
+        padding-top: 3rem;
+        text-align: center;
+        text-decoration: none;
+         
     }
     #errorpageouter{
         width: 100%;
@@ -37,7 +56,7 @@
     }
 
     img{
-        width: 100%;
+        width: 30%;
     }
      button{
         margin-top:4rem ;

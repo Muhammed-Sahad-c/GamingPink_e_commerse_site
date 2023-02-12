@@ -12,9 +12,8 @@
     <div id="emptyCart">
         <img src="/user/assets/images/emptycart.svg" alt="">
         <p>Your Cart is Empty!</p>
-        <strong>Add items to it now.</strong> <br>
         <a href="/">
-            <button id="addProductsToCart">Add Products</button>
+        add Products 
         </a>
     </div>
 </div>
@@ -24,7 +23,7 @@
         <h3 style="padding-left: 1.4rem;">CART</h3>
         {{#each cartProductDetails}}
         <div class="col-xs-12 col-md-4 col-sm-12 " style="margin-top: 2rem; margin-bottom: 2rem;">
-            <div id="flexdiv" style="display: flex; justify-content: flex-start; align-items: center; margin-top: 2rem; background-color: rgb(252, 252, 252); border-radius: 5px; height: 18rem;">
+            <div id="flexdiv" style="display: flex; justify-content: flex-start; align-items: center; margin-top: 2rem; background-color: rgb(252, 252, 252); border-radius: 5px; height: 18rem; width: 100%;">
                 <a href="/detail/{{this.productId}}">
 
                     <div style="padding: 1rem;">

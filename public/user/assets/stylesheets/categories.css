@@ -18,10 +18,14 @@
   #categorySlider a:hover {
     color: #042b57;
     text-decoration: underline;
-    font-size: 1.7rem;
+    font-size: 1.1rem;
     transition: 0.4s;
   }
   
+  #categorySlider a{
+    font-size: 1rem;
+  }
+
   #categorySliderOuterBody {
     background: rgb(255, 255, 255);
     margin-bottom: 1rem;
